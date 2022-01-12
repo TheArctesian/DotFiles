@@ -12,7 +12,7 @@ sudo apt install exfat-utils -y
 sudo apt install file -y
 sudo apt install git -y
 sudo apt install vim -y
-
+sudo snap install keepassxc
 # Creative
 sudo apt install gimp -y
 sudo snap install blender -y
@@ -29,6 +29,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh # Rust
 
 # RW
 sudo snap install onlyoffice-desktopeditors
+sudo snap install brave
 
 # Socail 
 sudo snap install signal-desktop
@@ -67,3 +68,4 @@ cd school
 git clone https://github.com/TheArctesian/SchoolFiles.git
 git config --global user.email "stephen.d.okita@gmail.com"
 git config --global user.name "theArctesian"
+sudo apt-get upgrade && sudo apt-get upgrade
