@@ -3,7 +3,8 @@
 sudo apt update -y
 sudo apt upgrade -ybefore 
 sudo apt install snapd
-
+sudo apt install neofetch -y
+sudo apt install gnome-tweaks
 # Install packages
 
 
@@ -26,6 +27,12 @@ sudo snap install bpytop
 sudo snap install cointop
 sudo snap install tmux
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh # Rust
+
+# Java (ew)
+sudo apt install default-jdk
+sudo apt update
+sudo apt install default-jre
+sudo add-apt-repository ppa:webupd8team/java
 
 # RW
 sudo snap install onlyoffice-desktopeditors
@@ -59,13 +66,22 @@ sudo apt install fonts-firacode -y
 sudo apt install fonts-hack-ttf -y
 curl -L https://get.oh-my.fish | fish
 chsh -s `which fish`
-
+fish
+omf install aight
 # Make dir 
 cd
 cd desktop
-mkdir -p ~/Desktop/{scripts, school, work}
+mkdir scripts
+mkdir work
+mkdir school
 cd school 
 git clone https://github.com/TheArctesian/SchoolFiles.git
 git config --global user.email "stephen.d.okita@gmail.com"
 git config --global user.name "theArctesian"
+git config --global credential.helper store #shut up i like it
 sudo apt-get upgrade && sudo apt-get upgrade
+
+#checks 
+java -version 
+npm -v 
+python --version
