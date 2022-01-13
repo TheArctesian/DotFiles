@@ -1,10 +1,10 @@
 # chmod +x ubuntu.sh 
 # System update
 sudo apt update -y
-sudo apt upgrade -ybefore 
-sudo apt install snapd
+sudo apt upgrade -y 
+sudo apt install snapd -y
 sudo apt install neofetch -y
-sudo apt install gnome-tweaks
+sudo apt install gnome-tweaks -y
 # Install packages
 
 
@@ -26,17 +26,19 @@ sudo apt install python3-pip -y
 sudo snap install bpytop 
 sudo snap install cointop
 sudo snap install tmux
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh # Rust
+sudo snap install postman
+
 
 # Java (ew)
-sudo apt install default-jdk
-sudo apt update
-sudo apt install default-jre
-sudo add-apt-repository ppa:webupd8team/java
+sudo apt install default-jdk -y
+sudo apt update -y
+sudo apt install default-jre -y
 
 # RW
 sudo snap install onlyoffice-desktopeditors
 sudo snap install brave
+sudo snap install spotify
+
 
 # Socail 
 sudo snap install signal-desktop
@@ -46,7 +48,6 @@ sudo snap install discord
 sudo apt install figlet -y
 sudo apt install lolcat -y
 
-
 # npm
 sudo apt install nodejs -y
 sudo npm install -g sass sass-lint -y
@@ -55,10 +56,12 @@ sudo npm install -g prettier -y
 sudo npm install -g yarn -y
 sudo npm install -g truffle -y
 
+
 # rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-sudo apt install rustc 
-sudo apt install cargo 
+sudo apt install rustc -y
+sudo apt install cargo -y
+
 
 # fish 
 sudo apt install fish -y
