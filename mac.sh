@@ -4,9 +4,10 @@ brew install node
 brew install yarn
 brew install wget
 brew install fish
+brew install m-cli 
+m wallpaper ./Assets/wallpaper.png
 sudo echo /usr/local/bin/fish >> /etc/shells
 chsh -s /usr/local/bin/fish
-fish
 set -U fish_user_paths /opt/homebrew/bin $fish_user_paths
 brew install tmux
 brew install curl
