@@ -4,10 +4,7 @@ My journey of distro hopping, tbh I am really like fedora workstation and bootin
 
 ### Todo
 
-- [ ] Try Artix 
 - [ ] Try Gentoo
-- [ ] Try Endeavour 
-- [ ] Try Arch 
 - [ ] Try PopOS
 - [ ] Try Kodachi
 
@@ -19,7 +16,9 @@ My journey of distro hopping, tbh I am really like fedora workstation and bootin
 - [ ] Finish Fedora file
 
 ### Done ✓
-
+- [x] Arch
+- [x] Artix
+- [x] Endavour
 - [x] Ubuntu/Kubuntu
 - [x] Mac
 - [x] Windows
