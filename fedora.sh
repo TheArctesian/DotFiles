@@ -13,13 +13,14 @@ sudo dnf install exfat-utils -y
 sudo dnf install file -y
 sudo dnf install git -y
 sudo dnf install vim -y
+sudo snap install core
 sudo snap install keepassxc
 # Creative
 sudo dnf install gimp -y
 sudo snap install blender -y
 
 # Development
-sudo snap install code --classic -y
+sudo snap install code --classic
 sudo dnf install build-essential -y
 sudo dnf install python3 -y
 sudo dnf install python3-pip -y
@@ -27,7 +28,7 @@ sudo snap install bpytop
 sudo snap install cointop
 sudo snap install tmux
 sudo snap install postman
-
+sudo dnf install dnf-plugins-core -y
 
 # Java (ew)
 sudo dnf install default-jdk -y
@@ -68,23 +69,18 @@ sudo dnf install fish -y
 sudo dnf install fonts-firacode -y
 sudo dnf install fonts-hack-ttf -y
 curl -L https://get.oh-my.fish | fish
-chsh -s `which fish`
-fish
-omf install aight
-# Make dir 
-cd
-cd desktop
-mkdir scripts
-mkdir work
-mkdir school
-cd school 
-git clone https://github.com/TheArctesian/SchoolFiles.git
+chsh -s /usr/bin/fish
+omf install slavic-cat
+
+# git 
+
 git config --global user.email "stephen.d.okita@gmail.com"
 git config --global user.name "theArctesian"
 git config --global credential.helper store #shut up i like it
-sudo dnf-get upgrade && sudo dnf-get upgrade
+
 
 #checks 
+sudo dnf upgrade --refresh -y
 java -version 
 npm -v 
 python --version
