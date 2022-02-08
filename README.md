@@ -11,24 +11,22 @@ Included:
 - Fedora 
 - Manjaro/Garuda
 - Ubuntu 
+- Arch
+- Artix
 - Windows 🤢 
 - Mac 🤢
 
-I want to say that I dont hate the proprietary OS and am not just a Linux masterace man but windows is so fucking bloated, unless you have a powerful computer can't really run in and powershell is kinda bad so is choco I don't love how many times you need to restart but need it for gaming. Mac is good but it blocks you from doing certain things and I don't love that, I love the fact its built on UNIX and sudo works, I really love brew it works really well, tbh if it supported games and got rid of the hand holding and allowed me to A. Modify hardware B. Make a iso file (ik this exists but its buggy af), I would daily boot mac.
 <br>
 <br>
 OS i want to try: 
 
-- Artix 
-    - Pre arch test
 - Endeavour 
 - Kodachi
     - For when I actually decide to pen test
 - PopOS
-    - To replace heavy computer for gaming, waiting for league to support linux well
-- Arch 
-    - Scary
+    - Just to see what if it is the linux distro to recommend to friends.
 - Elementary 
     - Eh
 - Gentoo
-    - Scary
+    - NEED MORE RAMMMM, or a motherboard that supports enough ram to rebuild os every 10min
+
