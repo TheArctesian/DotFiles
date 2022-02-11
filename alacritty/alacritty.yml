@@ -39,7 +39,6 @@ window:
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: false
-
   # Window decorations
   #
   # Values for `decorations`:
@@ -558,7 +557,7 @@ schemes:
       white:   '#282a2e'
 
 ######################################################################
-SET THEME: Doomone
+## SET THEME: Choose ONE color scheme from those in the above list. ##
 ## ###################################################################
 # Available themes are:
 # *DoomOne
@@ -572,7 +571,7 @@ SET THEME: Doomone
 # *SolarizedDark
 # *TomorrowNight
 
-colors: *DoomOne
+colors: *TomorrowNight
 
 #######################################
 ##       END OF COLOR SCHEMES        ##
@@ -608,8 +607,9 @@ colors: *DoomOne
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-#window.opacity: 1.0
-window.opacity: 0.50
+
+# background_opacity: 0.8
+# window.opacity: 0.80
 
 #selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
@@ -849,6 +849,8 @@ window.opacity: 0.50
 # binding with the same triggers is defined. To unset a default binding, it can
 # be mapped to the `ReceiveChar` action. Alternatively, you can use `None` for
 # a no-op if you do not wish to receive input characters for that binding.
+window:
+  opacity: 0.9
 key_bindings:
     # (Windows, Linux, and BSD only)
   - { key: V,         mods: Control|Shift, action: Paste                       }
