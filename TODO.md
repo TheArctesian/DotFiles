@@ -14,9 +14,10 @@ My journey of distro hopping, tbh I am really like fedora workstation and bootin
 
 - [ ] Finish Manjaro/Garuda file
 - [ ] Finish Fedora file
-- [ ] Finish Arch File
 
 ### Done ✓
+
+- [x] Finish Arch File
 - [x] Arch
 - [x] Artix
 - [x] Endavour
