@@ -2,11 +2,13 @@
 : set autoindent
 : set smarttab
 : set relativenumber
+: syntax on
 " Plugins
 call plug#begin()
 Plug 'https://github.com/vim-airline/vim-airline'
 Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'https://github.com/preservim/nerdtree'
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
 call plug#end()
 
 " Nerd Tree
