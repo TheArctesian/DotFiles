@@ -59,16 +59,26 @@
 
 /* bar background */
 .pecanbackground {
-  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.58);
   display: block;
   position: absolute;
-  height: var(--height, 5vh);
+  height: var(--height, 40px);
   padding: 0px;
+  top: var(--alignment-top, 0);
   right: 0;
   bottom: var(--alignment-bottom, auto);
   left: 0;
+  margin-top: var(--padding-top, 10px);
+  margin-right: var(--padding-right, 10px);
+  margin-bottom: var(--padding-top, 10px);
+  margin-left: var(--padding-left, 10px);
   opacity: var(--opacity, 1);
   z-index: -1;
+  box-shadow: var(--shadow, 0px 4px 10px 4px rgba(0, 0, 0, 0));
+  border-top-left-radius: var(--border-radius, 4px);
+  border-top-right-radius: var(--border-radius, 4px);
+  border-bottom-right-radius: var(--border-radius, 4px);
+  border-bottom-left-radius: var(--border-radius, 4px);
 }
 
 /* invisible container to align center element */
@@ -82,6 +92,10 @@
   right: 0;
   bottom: var(--alignment-bottom, auto);
   left: 0;
+  margin-top: var(--padding-top, 10px);
+  margin-right: var(--padding-right, 10px);
+  margin-bottom: var(--padding-top, 10px);
+  margin-left: var(--padding-left, 10px);
 }
 
 /* workspace indicator -- far left */
@@ -90,27 +104,32 @@
   color: var(--foreground-workspace, var(--background, #eee));
   display: inline-block;
   position: absolute;
-  background-color: var(--background-workspace, var(--color4, rgb(0, 0, 0)));
+  background-color: var(--background-workspace, var(--color1, #222));
   opacity: var(--opacity-inner, 1);
   top: var(--alignment-top, 0);
   right: auto;
   bottom: var(--alignment-bottom, auto);
   left: 0;
   padding: 0 var(--text-padding, 1ch);
-  margin-top: calc(var(--padding-top, 10px) + var(--border, 3px));
+  margin-top: calc(var(--padding-top, 12px) + var(--border, 3px));
   margin-bottom: calc(var(--padding-top, 10px) + var(--border, 3px));
   margin-left: calc(
     var(--padding-left, 10px) + var(--border, 3px) +
       var(--landscape-width-total, 0px)
   );
   line-height: calc(var(--height, 36px) - calc(var(--border, 3px) * 2));
+  border-top-left-radius: var(--border-radius-inner, 3px);
+  border-top-right-radius: var(--border-radius-inner, 3px);
+  border-bottom-right-radius: var(--border-radius-inner, 3px);
+  border-bottom-left-radius: var(--border-radius-inner, 3px);
+  box-shadow: var(--shadow-inner, 0px 1px 1px 1px rgba(0, 0, 0, 0.18));
 }
 
 /* load -- 2nd to the left */
 .pecanload {
   font: var(--font-size, 12px) var(--font, Menlo);
   color: var(--foreground-load, var(--background, #eee));
-  background-color: var(--background-load, var(--color2, rgb(0, 0, 0)));
+  background-color: var(--background-load, var(--color2, #222));
   opacity: var(--opacity-inner, 1);
   position: absolute;
   display: inline-block;
@@ -127,7 +146,11 @@
       calc(var(--text-padding, 1ch) * 2) + 1ch + calc(var(--border, 3px) * 2)
   );
   line-height: calc(var(--height, 36px) - calc(var(--border, 3px) * 2));
-
+  border-top-left-radius: var(--border-radius-inner, 3px);
+  border-top-right-radius: var(--border-radius-inner, 3px);
+  border-bottom-right-radius: var(--border-radius-inner, 3px);
+  border-bottom-left-radius: var(--border-radius-inner, 3px);
+  box-shadow: var(--shadow-inner, 0px 1px 1px 1px rgba(0, 0, 0, 0.18));
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -148,7 +171,7 @@
 /* network -- 3rd to left */
 .pecannetwork {
   font: var(--font-size, 12px) var(--font, Menlo);
-  background-color: var(--background-network, var(--color3, rgb(0, 0, 0)));
+  background-color: var(--background-network, var(--color3, #222));
   opacity: var(--opacity-inner, 1);
   color: var(--foreground-network, var(--background, #eee));
   position: absolute;
@@ -166,6 +189,10 @@
       16ch
   );
   line-height: calc(var(--height, 36px) - calc(var(--border, 3px) * 2));
+  border-top-left-radius: var(--border-radius-inner, 3px);
+  border-top-right-radius: var(--border-radius-inner, 3px);
+  border-bottom-right-radius: var(--border-radius-inner, 3px);
+  border-bottom-left-radius: var(--border-radius-inner, 3px);
   box-shadow: var(--shadow-inner, 0px 1px 1px 1px rgba(0, 0, 0, 0.18));
 }
 
@@ -173,7 +200,6 @@
 .pecandate {
   font: var(--font-size, 12px) var(--font, Menlo);
   color: var(--foreground-date, var(--color7, #eee));
-  background-color: var(--background-date, var(--background, rgb(0, 0, 0)));
   opacity: var(--opacity-inner, 1);
   position: absolute;
   display: inline-block;
@@ -183,11 +209,13 @@
   bottom: var(--alignment-bottom, auto);
   left: 50%;
   transform: translate(-50%);
-  margin: calc(var(--padding-top, 10px) + var(--border, 3px));
+  margin: calc(var(--padding-top, 12px) + var(--border, 3px));
   line-height: calc(var(--height, 36px) - calc(var(--border, 3px) * 2));
   text-align: center;
-
-  box-shadow: var(--shadow-inner, 0px 1px 1px 1px rgba(0, 0, 0, 0.18));
+  border-top-left-radius: var(--border-radius-inner, 3px);
+  border-top-right-radius: var(--border-radius-inner, 3px);
+  border-bottom-right-radius: var(--border-radius-inner, 3px);
+  border-bottom-left-radius: var(--border-radius-inner, 3px);
 }
 
 /* battery percentage -- 2nd to right */
@@ -196,22 +224,23 @@
   color: var(--foreground-battery, var(--background, #eee));
   display: inline-block;
   position: absolute;
-  background-color: var(--background-battery, var(--color5, rgb(0, 0, 0)));
   opacity: var(--opacity-inner, 1);
   padding: 0 var(--text-padding, 1ch);
   top: var(--alignment-top, 0);
   right: 0;
   bottom: var(--alignment-bottom, auto);
   left: auto;
-  margin-top: calc(var(--padding-top, 10px) + var(--border, 3px));
+  margin-top: calc(var(--padding-top, 12px) + var(--border, 3px));
   margin-right: calc(
     var(--padding-right, 10px) + calc(var(--text-padding, 1ch) * 2) + 9ch +
       calc(var(--border, 3px) * 2)
   );
   margin-bottom: calc(var(--padding-top, 10px) + var(--border, 3px));
   line-height: calc(var(--height, 36px) - calc(var(--border, 3px) * 2));
-
-  box-shadow: var(--shadow-inner, 0px 1px 1px 1px rgba(0, 0, 0, 0.18));
+  border-top-left-radius: var(--border-radius-inner, 3px);
+  border-top-right-radius: var(--border-radius-inner, 3px);
+  border-bottom-right-radius: var(--border-radius-inner, 3px);
+  border-bottom-left-radius: var(--border-radius-inner, 3px);
 }
 
 /* clock -- far right */
@@ -220,7 +249,6 @@
   color: var(--foreground-clock, var(--background, #eee));
   display: inline-block;
   position: absolute;
-  background-color: var(--background-clock, var(--color6, rgb(0, 0, 0)));
   opacity: var(--opacity-inner, 1);
   padding: 0 var(--text-padding, 1ch);
   margin: var(--border, 3px);
@@ -228,9 +256,12 @@
   right: 0;
   bottom: var(--alignment-bottom, auto);
   left: auto;
-  margin-top: calc(var(--padding-top, 10px) + var(--border, 3px));
+  margin-top: calc(var(--padding-top, 12px) + var(--border, 3px));
   margin-right: calc(var(--border, 3px) + var(--padding-right, 10px));
   margin-bottom: calc(var(--padding-top, 10px) + var(--border, 3px));
   line-height: calc(var(--height, 36px) - calc(var(--border, 3px) * 2));
-  box-shadow: var(--shadow-inner, 0px 1px 1px 1px rgba(0, 0, 0, 0.18));
+  border-top-left-radius: var(--border-radius-inner, 3px);
+  border-top-right-radius: var(--border-radius-inner, 3px);
+  border-bottom-right-radius: var(--border-radius-inner, 3px);
+  border-bottom-left-radius: var(--border-radius-inner, 3px);
 }
