@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+#
+# author: daniel neemann (@zzzeyez)
+#
+# displays notifications on macos
+# requires `ubersicht`
+
+pre() {
+	screencapture -x "$cache/$ws.png"
+}
+
+setup() {
+
+	# get path
+	SOURCE="${BASH_SOURCE[0]}"
+	while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+		DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
+		SOURCE="$(readlink "$SOURCE")"
+		[[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+	done
+	dir="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
+
+	# check if cache exists
+	cache="$dir/.cache"
+	if [[ ! -d "$cache" ]] ; then
+		mkdir "$cache"
+	fi
+
+	# get workspace
+  ws="$(/usr/local/bin/yabai -m query --spaces --space | grep index | sed 's/[^0-9]*//g')"
+
+	# if not refreshing then take screenshot and exit
+	if [[ "$#" -ne 0 ]]; then
+		screencapture -x "$cache/$ws.png"
+		exit
+	fi
+  wstotal="$(/usr/local/bin/yabai -m query --spaces | grep 'index' | wc -l | sed 's/[^0-9]*//g')"
+
+	# check if ubersicht is running
+	ps cax | grep sicht > /dev/null
+	if [ $? -eq 0 ]; then
+		# stupid umlaut character
+		ubersicht="$(ps ax | grep sicht | awk '{print $5}' | head -1 | cut -d/ -f3 | cut -d. -f1)"
+		if [[ "$ubersicht" = "UM-LM^Hbersicht" ]] ; then
+			ubersicht="Übersicht"
+		fi		
+	fi
+}
+
+refresh() {
+	if [[ "$ubersicht" ]] ; then
+		#osascript -e 'tell application "'$ubersicht'" to refresh widget id "'$1'"'
+		osascript -e 'tell application "'$ubersicht'" to refresh'
+	fi
+}
+
+main() {
+	screencapture -x "$cache/$ws.png"
+	cp "$dir/workspaces/$wstotal" "$dir/landscape.jsx"
+	echo ":root { --wstotal: $wstotal; } .landscape li.ls$ws { box-shadow: inset 0 0 0 2px var(--color1, #fff); }" > "$cache/current.css"
+	refresh landscape-landscape-jsx
+		#osascript -e 'tell application "'$ubersicht'" to refresh widget id "'landscape-landscape-jsx'"'
+}
+
+setup "$@"
+main

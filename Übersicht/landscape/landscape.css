@@ -1,0 +1,160 @@
+/* landscape is a workspace switcher for macos */
+/* written by daniel neemann (@zzzeyez) */
+
+:root {
+  /*todo*/
+  /*--landscape-ratio: ;*/
+  /*--landscape-border-radius: ;*/
+
+  --landscape-height: var(
+    --height-landscape,
+    var(--default-height-landscape, 50px)
+  );
+  --landscape-width: calc(var(--landscape-height, 50px) * 1.6);
+
+  /*split this into vertical + horizontal*/
+  --landscape-margin: var(--margin-landscape, var(--default-margin-landscape));
+  --landscape-border: var(--border-landscape, var(--default-border-landscape));
+  --landscape-border-radius: var(
+    --border-radius-landscape,
+    var(--default-border-radius-landscape)
+  );
+
+  --landscape-width-total: calc(
+    /*var(--landscape-width) * 1 */ var(--landscape-width) * var(--wstotal) +
+      var(--landscape-border, 3px) * var(--wstotal) - var(--text-padding, 1ch) *
+      2 - 1ch - var(--landscape-border) /*add space*/ + var(--landscape-width) +
+      var(--landscape-border)
+  );
+}
+
+/* Get monitor width */
+.screen {
+  width: 100vw;
+  height: 100vh;
+}
+
+.landscape {
+  height: var(--landscape-height);
+  top: 0;
+  right: auto;
+  bottom: auto;
+  left: 0;
+  background: var(
+    --landscape-background,
+    var(--default-background-landscape, NONE)
+  );
+  display: block;
+  position: absolute;
+  margin: var(--landscape-margin, 0px);
+  padding: var(--landscape-border, 10px);
+  border-radius: 0px;
+  z-index: 3;
+  font: var(--font-size, 12px) var(--font, Menlo);
+}
+
+.landscape ul {
+  height: var(--landscape-height);
+  padding: 0px;
+  margin: 0px;
+}
+
+.landscape li {
+  width: var(--landscape-width);
+  height: var(--landscape-height);
+  line-height: var(--landscape-height);
+  float: left;
+  padding: 0;
+  margin: 0 var(--landscape-border, 10px) 0 0;
+  list-style-type: none;
+  border-radius: var(--landscape-border-radius, 3px);
+  box-shadow: var(
+    --shadow-landscape,
+    var(--default-shadow-landscape, 0px 1px 1px 1px rgba(0, 0, 0, 0.18))
+  );
+  text-align: center;
+}
+
+.landscape li:last-child {
+  margin-right: 0px;
+}
+
+.landscape li:hover {
+  box-shadow: inset 0 0 0 2px var(--color7, #fff);
+}
+
+.landscape li.add {
+  background: var(--color8, #999);
+}
+
+.landscape li.ls1 {
+  background: url('/landscape/.cache/1.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.landscape li.ls2 {
+  /*outline: 3px solid var(--color1);*/
+  /*outline-offset: -3px;*/
+  background: url('/landscape/.cache/2.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.landscape li.ls3 {
+  background: url('/landscape/.cache/3.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.landscape li.ls4 {
+  background: url('/landscape/.cache/4.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.landscape li.ls5 {
+  background: url('/landscape/.cache/5.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.landscape li.ls6 {
+  background: url('/landscape/.cache/6.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.landscape li.ls7 {
+  background: url('/landscape/.cache/7.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.landscape li.ls8 {
+  background: url('/landscape/.cache/8.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.landscape li.ls9 {
+  background: url('/landscape/.cache/9.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.landscape li.ls10 {
+  background: url('/landscape/.cache/10.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
