@@ -79,8 +79,17 @@ full =
   renamed [Replace "Full"] $
     mySpacing myWindowGap $
         Full
+spiralLayout =
+  renamed [Replace "Spiral"] $
+    mySpacing myWindowGap $
+        spiral (6/7)
 
-grid = 
+threeLayout =
+  renamed [Replace "Three"] $
+    mySpacing myWindowGap $
+        ThreeColMid 1 (3/100) (1/2)
+
+grid =
   renamed [Replace "Grid"] $
     mySpacing myWindowGap $
          Grid
@@ -88,7 +97,7 @@ myLayout =
   avoidStruts $ smartBorders myDefaultLayout
   --smartBorders myDefaultLayout
   where
-    myDefaultLayout = tall ||| wide ||| grid ||| spiral(6/7) 
+    myDefaultLayout = tall ||| wide ||| grid ||| spiralLayout ||| threeLayout
 --------------------------------------------------------------------------------------------------------------------------------------------
 
 main :: IO ()
