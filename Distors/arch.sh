@@ -3,5 +3,15 @@
 
 # Then here is where I put the shit I need
 
-pacman -S nodejs npm
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+sudo pacman -S nodejs npm xmonad xmobar alacritty xmonad-contrib xterm ttf-fira-mono feh picom neovim github-cli btop htop fish git chrony
+
+cd ~/
+mkdir Build
+sudo git clone https://aur.archlinux.org/yay-git.git
+sudo chown -R {name}:{name} yay-git
+cd yay-git
+makepkg -si
+yay
+
+systemctl enable --now chronyd
+
