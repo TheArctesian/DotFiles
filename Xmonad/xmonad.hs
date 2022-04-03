@@ -58,7 +58,7 @@ myBorderWidth          = 2                                                      
 myWindowGap            = 20                                                                       :: Integer
 myTerminal             = "alacritty"                                                              :: String
 myFocusedBorderColor   = "#9ec0ff"                                                                :: String
-myNormalBorderColor    = "#04c494"                                                                :: String
+myNormalBorderColor    = "#000000"                                                                :: String
 myBrowser              = "brave"                                                                  :: String
 --------------------------------------------------------------------------------------------------------------------------------------------
 -- Layout
@@ -84,12 +84,12 @@ spiralLayout =
     mySpacing myWindowGap $
         spiral (6/7)
 
-threeLayout =
+threeLayout = 
   renamed [Replace "Three"] $
     mySpacing myWindowGap $
         ThreeColMid 1 (3/100) (1/2)
 
-grid =
+grid = 
   renamed [Replace "Grid"] $
     mySpacing myWindowGap $
          Grid
