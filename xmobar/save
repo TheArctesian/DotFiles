@@ -1,5 +1,9 @@
--- Color scheme: Dracula
--- thanks dt
+-- Xmobar (http://projects.haskell.org/xmobar/)
+-- This is the default xmobar configuration for DTOS.
+-- This config is packaged in the DTOS repo as dtos-xmobar
+-- Dependencies: otf-font-awesome ttf-mononoki ttf-ubuntu-font-family trayer
+-- Also depends on scripts from dtos-local-bin from the dtos-core-repo.
+
 Config { font = "xft:Ubuntu:weight=bold:pixelsize=11:antialias=true:hinting=true"
 , additionalFonts = [ "xft:Mononoki:pixelsize=11:antialias=true:hinting=true"
 , "xft:Font Awesome 6 Free Solid:pixelsize=12"
@@ -12,7 +16,7 @@ Config { font = "xft:Ubuntu:weight=bold:pixelsize=11:antialias=true:hinting=true
 -- an integer for the percentage width, so 100 would be 100%.
 -- an integer for the minimum pixel height for xmobar, so 24 would force a height of at least 24 pixels.
 -- NOTE: The height should be the same as the trayer (system tray) height.
-, position = TopSize L 100 30
+, position = TopSize L 100 24
 , lowerOnStart = True
 , hideOnStart = False
 , allDesktops = True
@@ -50,6 +54,7 @@ Run Com "echo" ["<fn=3>\xf17c</fn>"] "penguin" 3600
 ]
 , sepChar = "%"
 , alignSep = "}{"
-, template = "<icon=haskell_20.xpm/><fc=#666666>|</fc> }{ <box type=Bottom width=2 mb=2 color=#bd93f9><fc=#bd93f9>%penguin% %kernel%</fc></box> <box type=Bottom width=2 mb=2 color=#f1fa8c><fc=#f1fa8c><action=`alacritty -e btop`>%cpu%</action></fc></box> <box type=Bottom width=2 mb=2 color=#ff5555><fc=#ff5555><action=`alacritty -e btop`>%memory%</action></fc></box> <box type=Bottom width=2 mb=2 color=#5af78e><fc=#5af78e>%disku%</fc></box> <box type=Bottom width=2 mb=2 color=#ff79c6><fc=#ff79c6>%uparrow% %uptime%</fc></box> <box type=Bottom width=2 mb=2 color=#8be9fd><fc=#8be9fd>%bell% <action=`alacritty -e sudo pacman -Syu`>%pacupdate%</action></fc></box> <box type=Bottom width=2 mb=2 color=#ff6e67><fc=#ff6e67>%baticon% %battery%</fc></box> <box type=Bottom width=2 mb=2 color=#caa9fa><fc=#caa9fa><action=`alacritty -e nvim .`>%date%</action></fc></box> %trayerpad%"
--- Xmobar (http://projects.haskell.org/xmobar/)
+, template = " <action=`dm-run`><icon=haskell_20.xpm/> </action> <fc=#666666>|</fc> %UnsafeStdinReader% }{ <box type=Bottom width=2 mb=2 color=#bd93f9><fc=#bd93f9>%penguin% %kernel%</fc></box> <box type=Bottom width=2 mb=2 color=#f1fa8c><fc=#f1fa8c><action=`alacritty -e btop`>%cpu%</action></fc></box> <box type=Bottom width=2 mb=2 color=#ff5555><fc=#ff5555><action=`alacritty -e btop`>%memory%</action></fc></box> <box type=Bottom width=2 mb=2 color=#5af78e><fc=#5af78e>%disku%</fc></box> <box type=Bottom width=2 mb=2 color=#ff79c6><fc=#ff79c6>%uparrow% %uptime%</fc></box> <box type=Bottom width=2 mb=2 color=#8be9fd><fc=#8be9fd>%bell% <action=`alacritty -e yay`>%pacupdate%</action></fc></box> <box type=Bottom width=2 mb=2 color=#ff6e67><fc=#ff6e67>%baticon% %battery%</fc></box> <box type=Bottom width=2 mb=2 color=#caa9fa><fc=#caa9fa><action=`bave-browser-nightly`>%date%</action></fc></box> %trayerpad%"
+}
+
 }
