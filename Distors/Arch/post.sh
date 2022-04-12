@@ -25,9 +25,9 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.g
 # Xmonad stuff
 mkdir ~/.xmonad
 git clone https://github.com/TheArctesian/DotFiles.git
-cp ~/DotFiles/xmobar ~/.config 
-cp ~/DotFiles/xmonad/xmonad.hs ~/.config 
-cp ~/DotFiles/Wallpaper ~/ 
+cp -r ~/DotFiles/xmobar ~/.config 
+cp -r ~/DotFiles/xmonad/xmonad.hs ~/.config 
+cp -r ~/DotFiles/Wallpaper ~/ 
 # feh --bg-fill ~/Wallpaper/1080/whatever you want.png
 cp ~/DotFiles/Xmonad/xmonad.hs ~/.xmonad 
 
