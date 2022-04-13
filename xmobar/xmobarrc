@@ -12,7 +12,7 @@ Config { font = "xft:Ubuntu:weight=bold:pixelsize=11:antialias=true:hinting=true
 -- an integer for the percentage width, so 100 would be 100%.
 -- an integer for the minimum pixel height for xmobar, so 24 would force a height of at least 24 pixels.
 -- NOTE: The height should be the same as the trayer (system tray) height.
-, position = TopSize L 100 30
+, position = TopSize L 100 24
 , lowerOnStart = True
 , hideOnStart = False
 , allDesktops = True
@@ -50,6 +50,5 @@ Run Com "echo" ["<fn=3>\xf17c</fn>"] "penguin" 3600
 ]
 , sepChar = "%"
 , alignSep = "}{"
-, template = "%UnsafeStdinReader%} {<box type=Bottom width=2 mb=2 color=#bd93f9><fc=#bd93f9>%penguin% %kernel%</fc></box> <box type=Bottom width=2 mb=2 color=#f1fa8c><fc=#f1fa8c><action=`alacritty -e btop`>%cpu%</action></fc></box> <box type=Bottom width=2 mb=2 color=#ff5555><fc=#ff5555><action=`alacritty -e btop`>%memory%</action></fc></box> <box type=Bottom width=2 mb=2 color=#5af78e><fc=#5af78e>%disku%</fc></box> <box type=Bottom width=2 mb=2 color=#ff79c6><fc=#ff79c6>%uparrow% %uptime%</fc></box> <box type=Bottom width=2 mb=2 color=#8be9fd><fc=#8be9fd>%bell% <action=`alacritty -e sudo pacman -Syu`>%pacupdate%</action></fc></box> <box type=Bottom width=2 mb=2 color=#ff6e67><fc=#ff6e67>%baticon% %battery%</fc></box> <box type=Bottom width=2 mb=2 color=#caa9fa><fc=#caa9fa><action=`alacritty -e nvim .`>%date%</action></fc></box> %trayerpad%"
--- Xmobar (http://projects.haskell.org/xmobar/)
+, template = "<icon=haskell_20.xpm/>   <fc=#666666>|</fc> %UnsafeStdinReader% }{ <box type=Bottom width=2 mb=2 color=#bd93f9><fc=#bd93f9>| %penguin% | <action=`alacritty -e btop`>%kernel%</action> </fc></box>    <box type=Bottom width=2 mb=2 color=#f1fa8c><fc=#f1fa8c><action=`alacritty -e btop`>%cpu%</action></fc></box>    <box type=Bottom width=2 mb=2 color=#ff5555><fc=#ff5555><action=`alacritty -e btop`>%memory%</action></fc></box>    <box type=Bottom width=2 mb=2 color=#5af78e><fc=#5af78e><action=`alacritty -e btop`>%disku%</action></fc></box>    <box type=Bottom width=2 mb=2 color=#ff79c6><fc=#ff79c6>%uparrow%  <action=`alacritty -e btop`>%uptime%</action></fc></box>    <box type=Bottom width=2 mb=2 color=#8be9fd><fc=#8be9fd>%bell%  <action=`alacritty -e yay`>%pacupdate%</action></fc></box>   <box type=Bottom width=2 mb=2 color=#ff6e67><fc=#ff6e67>%baticon%  <action=`alacritty -e yay`>%battery%</action></fc></box>    <box type=Bottom width=2 mb=2 color=#caa9fa><fc=#caa9fa>%date%<</fc></box> %trayerpad%"
 }
