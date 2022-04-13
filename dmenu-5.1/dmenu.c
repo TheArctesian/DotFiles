@@ -24,22 +24,11 @@
                              * MAX(0, MIN((y)+(h),(r).y_org+(r).height) - MAX((y),(r).y_org)))
 #define LENGTH(X)             (sizeof X / sizeof X[0])
 #define TEXTW(X)              (drw_fontset_getwidth(drw, (X)) + lrpad)
+#define NUMBERSMAXDIGITS      100
+#define NUMBERSBUFSIZE        (NUMBERSMAXDIGITS * 2) + 1
 
 /* enums */
-enum {
-  SchemeNorm,
-  SchemeFade,
-  SchemeHighlight,
-  SchemeHover,
-  SchemeSel,
-  SchemeOut,
-  SchemeGreen,
-  SchemeYellow,
-  SchemeBlue,
-  SchemePurple,
-  SchemeRed,
-  SchemeLast
-}; /* color schemes */
+enum { SchemeNorm, SchemeSel, SchemeOut, SchemeLast }; /* color schemes */
 
 struct item {
 	char *text;
@@ -47,12 +36,10 @@ struct item {
 	int out;
 };
 
+static char numbers[NUMBERSBUFSIZE] = "";
 static char text[BUFSIZ] = "";
 static char *embed;
 static int bh, mw, mh;
-static int dmx = 0; /* put dmenu at this x offset */
-static int dmy = 0; /* put dmenu at this y offset (measured from the bottom if topbar is 0) */
-static unsigned int dmw = 0; /* make dmenu this wide */
 static int inputw = 0, promptw;
 static int lrpad; /* sum of left and right padding */
 static size_t cursor;
@@ -146,117 +133,31 @@ cistrstr(const char *h, const char *n)
 }
 
 static int
-drawitem(struct item *item, int x, int y, int w) {
-  int iscomment = 0;
-  if (item->text[0] == '>') {
-    if (item->text[1] == '>') {
-      iscomment = 3;
-      switch (item->text[2]) {
-      case 'r':
-        drw_setscheme(drw, scheme[SchemeRed]);
-        break;
-      case 'g':
-        drw_setscheme(drw, scheme[SchemeGreen]);
-        break;
-      case 'y':
-        drw_setscheme(drw, scheme[SchemeYellow]);
-        break;
-      case 'b':
-        drw_setscheme(drw, scheme[SchemeBlue]);
-        break;
-      case 'p':
-        drw_setscheme(drw, scheme[SchemePurple]);
-        break;
-      case 'h':
-        drw_setscheme(drw, scheme[SchemeHighlight]);
-        break;
-      case 's':
-        drw_setscheme(drw, scheme[SchemeSel]);
-        break;
-      default:
-        iscomment = 1;
-        drw_setscheme(drw, scheme[SchemeNorm]);
-        break;
-      }
-    } else {
-      drw_setscheme(drw, scheme[SchemeNorm]);
-      iscomment = 1;
-    }
+drawitem(struct item *item, int x, int y, int w)
+{
+	if (item == sel)
+		drw_setscheme(drw, scheme[SchemeSel]);
+	else if (item->out)
+		drw_setscheme(drw, scheme[SchemeOut]);
+	else
+		drw_setscheme(drw, scheme[SchemeNorm]);
 
-  } else if (item->text[0] == ':') {
-    iscomment = 2;
-    if (item == sel) {
-      switch (item->text[1]) {
-      case 'r':
-        drw_setscheme(drw, scheme[SchemeRed]);
-        break;
-      case 'g':
-        drw_setscheme(drw, scheme[SchemeGreen]);
-        break;
-      case 'y':
-        drw_setscheme(drw, scheme[SchemeYellow]);
-        break;
-      case 'b':
-        drw_setscheme(drw, scheme[SchemeBlue]);
-        break;
-      case 'p':
-        drw_setscheme(drw, scheme[SchemePurple]);
-        break;
-      case 'h':
-        drw_setscheme(drw, scheme[SchemeHighlight]);
-        break;
-      case 's':
-        drw_setscheme(drw, scheme[SchemeSel]);
-        break;
-      default:
-        drw_setscheme(drw, scheme[SchemeSel]);
-        iscomment = 0;
-        break;
-      }
-    } else {
-      drw_setscheme(drw, scheme[SchemeNorm]);
-    }
-  } else {
-    if (item == sel)
-      drw_setscheme(drw, scheme[SchemeSel]);
-    else if (item->out)
-      drw_setscheme(drw, scheme[SchemeOut]);
-    else
-      drw_setscheme(drw, scheme[SchemeNorm]);
-  }
+	return drw_text(drw, x, y, w, bh, lrpad / 2, item->text, 0);
+}
 
-  int temppadding;
-  temppadding = 0;
-  if (iscomment == 2) {
-    if (item->text[2] == ' ') {
-      temppadding = drw->fonts->h * 3;
-      animated = 1;
-      char dest[1000];
-      strcpy(dest, item->text);
-      dest[6] = '\0';
-      drw_text(drw, x, y, temppadding, lineheight, temppadding / 2.6, dest + 3, 0);
-      iscomment = 6;
-      drw_setscheme(drw, sel == item ? scheme[SchemeHover] : scheme[SchemeNorm]);
-    }
-  }
-
-  char *output;
-  if (commented) {
-    static char onestr[2];
-    onestr[0] = item->text[0];
-    onestr[1] = '\0';
-    output = onestr;
-  } else {
-    output = item->text;
-  }
-
-  if (item == sel)
-    sely = y;
-  return drw_text(
-      drw, x + ((iscomment == 6) ? temppadding : 0), y,
-      commented ? bh : (w - ((iscomment == 6) ? temppadding : 0)), bh,
-      commented ? (bh - drw_fontset_getwidth(drw, (output))) / 2 : lrpad / 2,
-      output + iscomment, 0);
+static void
+recalculatenumbers()
+{
+	unsigned int numer = 0, denom = 0;
+	struct item *item;
+	if (matchend) {
+		numer++;
+		for (item = matchend; item && item->left; item = item->left)
+			numer++;
+	}
+	for (item = items; item && item->text; item++)
+		denom++;
+	snprintf(numbers, NUMBERSBUFSIZE, "%d/%d", numer, denom);
 }
 
 static void
@@ -264,7 +165,7 @@ drawmenu(void)
 {
 	unsigned int curpos;
 	struct item *item;
-	int x = 0, y = 0, fh = drw->fonts->h, w;
+	int x = 0, y = 0, w;
 
 	drw_setscheme(drw, scheme[SchemeNorm]);
 	drw_rect(drw, 0, 0, mw, mh, 1, 1);
@@ -281,9 +182,10 @@ drawmenu(void)
 	curpos = TEXTW(text) - TEXTW(&text[cursor]);
 	if ((curpos += lrpad / 2 - 1) < w) {
 		drw_setscheme(drw, scheme[SchemeNorm]);
-		drw_rect(drw, x + curpos, 2 + (bh - fh) / 2, 2, fh - 4, 1, 0);
+		drw_rect(drw, x + curpos, 2, 2, bh - 4, 1, 0);
 	}
 
+	recalculatenumbers();
 	if (lines > 0) {
 		/* draw grid */
 		int i = 0;
@@ -304,13 +206,15 @@ drawmenu(void)
 		}
 		x += w;
 		for (item = curr; item != next; item = item->right)
-			x = drawitem(item, x, 0, MIN(TEXTW(item->text), mw - x - TEXTW(">")));
+			x = drawitem(item, x, 0, MIN(TEXTW(item->text), mw - x - TEXTW(">") - TEXTW(numbers)));
 		if (next) {
 			w = TEXTW(">");
 			drw_setscheme(drw, scheme[SchemeNorm]);
-			drw_text(drw, mw - w, 0, w, bh, lrpad / 2, ">", 0);
+			drw_text(drw, mw - w - TEXTW(numbers), 0, w, bh, lrpad / 2, ">", 0);
 		}
 	}
+	drw_setscheme(drw, scheme[SchemeNorm]);
+	drw_text(drw, mw - TEXTW(numbers), 0, TEXTW(numbers), bh, lrpad / 2, numbers, 0);
 	drw_map(drw, win, 0, 0, mw, mh);
 }
 
@@ -759,7 +663,6 @@ setup(void)
 
 	/* calculate menu geometry */
 	bh = drw->fonts->h + 2;
-    bh = MAX(bh,lineheight);	/* make a menu line AT LEAST 'lineheight' tall */
 	lines = MAX(lines, 0);
 	mh = (lines + 1) * bh;
 	promptw = (prompt && *prompt) ? TEXTW(prompt) - lrpad / 4 : 0;
@@ -789,9 +692,16 @@ setup(void)
 				if (INTERSECT(x, y, 1, 1, info[i]))
 					break;
 
-		mw = MIN(MAX(max_textw() + promptw, 100), info[i].width);
-		x = info[i].x_org + ((info[i].width  - mw) / 2);
-		y = info[i].y_org + ((info[i].height - mh) / 2);
+		if (centered) {
+			mw = MIN(MAX(max_textw() + promptw, min_width), info[i].width);
+			x = info[i].x_org + ((info[i].width  - mw) / 2);
+			y = info[i].y_org + ((info[i].height - mh) / 2);
+		} else {
+			x = info[i].x_org;
+			y = info[i].y_org + (topbar ? 0 : info[i].height - mh);
+			mw = info[i].width;
+		}
+
 		XFree(info);
 	} else
 #endif
@@ -799,9 +709,16 @@ setup(void)
 		if (!XGetWindowAttributes(dpy, parentwin, &wa))
 			die("could not get embedding window attributes: 0x%lx",
 			    parentwin);
-		mw = MIN(MAX(max_textw() + promptw, 100), wa.width);
-		x = (wa.width  - mw) / 2;
-		y = (wa.height - mh) / 2;
+
+		if (centered) {
+			mw = MIN(MAX(max_textw() + promptw, min_width), wa.width);
+			x = (wa.width  - mw) / 2;
+			y = (wa.height - mh) / 2;
+		} else {
+			x = 0;
+			y = topbar ? 0 : wa.height - mh;
+			mw = wa.width;
+		}
 	}
 	inputw = MIN(inputw, mw/3);
 	match();
@@ -841,8 +758,7 @@ setup(void)
 static void
 usage(void)
 {
-	fputs("usage: dmenu [-bfiv] [-l lines] [-h height] [-p prompt] [-fn font] [-m monitor]\n"
-	      "             [-x xoffset] [-y yoffset] [-z width]\n"
+	fputs("usage: dmenu [-bfiv] [-l lines] [-p prompt] [-fn font] [-m monitor]\n"
 	      "             [-nb color] [-nf color] [-sb color] [-sf color] [-w windowid]\n", stderr);
 	exit(1);
 }
@@ -870,19 +786,13 @@ main(int argc, char *argv[])
 		} else if (i + 1 == argc)
 			usage();
 		/* these options take one argument */
-		else if (!strcmp(argv[i], "-l"))   /* number of lines in vertical list */
+		else if (!strcmp(argv[i], "-g")) {   /* number of columns in grid */
+			columns = atoi(argv[++i]);
+			if (lines == 0) lines = 1;
+		} else if (!strcmp(argv[i], "-l")) { /* number of lines in grid */
 			lines = atoi(argv[++i]);
-        else if (!strcmp(argv[i], "-x"))   /* window x offset */
-			dmx = atoi(argv[++i]);
-		else if (!strcmp(argv[i], "-y"))   /* window y offset (from bottom up if -b) */
-			dmy = atoi(argv[++i]);
-		else if (!strcmp(argv[i], "-z"))   /* make dmenu this wide */
-			dmw = atoi(argv[++i]);
-        else if (!strcmp(argv[i], "-h")) { /* minimum height of one menu line */
-			lineheight = atoi(argv[++i]);
-			lineheight = MAX(lineheight, min_lineheight);
-		}
-		else if (!strcmp(argv[i], "-m"))
+			if (columns == 0) columns = 1;
+		} else if (!strcmp(argv[i], "-m"))
 			mon = atoi(argv[++i]);
 		else if (!strcmp(argv[i], "-p"))   /* adds prompt to left of input field */
 			prompt = argv[++i];
@@ -916,9 +826,6 @@ main(int argc, char *argv[])
 	if (!drw_fontset_create(drw, fonts, LENGTH(fonts)))
 		die("no fonts could be loaded.");
 	lrpad = drw->fonts->h;
-
-    if (lineheight == -1)
-        lineheight = drw->fonts->h * 2.5;
 
 #ifdef __OpenBSD__
 	if (pledge("stdio rpath", NULL) == -1)
