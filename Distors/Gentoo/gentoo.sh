@@ -127,11 +127,34 @@ echo 'GRUB_PLATFORMS="efi-64"' >> /etc/portage/make.conf
 
 emerge --ask sys-boot/grub
 
-grub-install /dev/nvme0n1p1
-
 grub-install --target=x86_64-efi --efi-directory=/boot
 
 grub-mkconfig -o /boot/grub/grub.cfg
+
+useradd -m -G users,wheel,audio -s /bin/bash arctesian
+passwd arctesian
+emerge --ask x11-base/xorg-server
+
+emerge --pretend --verbose x11-base/xorg-drivers
+
+eselect profile set default/linux/amd64/17.1/desktop/gnome
+
+emerge --ask gnome-base/gnome-light
+
+env-update && source /etc/profile
+
+rc-update add elogind boot
+
+rc-service elogind start
+
+emerge --ask --noreplace gui-libs/display-manager-init
+
+vim /etc/conf.d/display-manager
+   DISPLAYMANAGER="gdm"
+
+rc-update add display-manager default
+
+rc-service display-manager start
 
 exit
 
