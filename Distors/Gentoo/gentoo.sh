@@ -1,12 +1,14 @@
+# set up wifi
+net-setup eth0
+
 fdisk -l 
 fdisk /dev/nvme0n1
 
 # Format Disks
 mkfs.fat -F 32 /dev/nvme0n1p1
 mkswap /dev/nvme0n1p2
+swapon /dev/nvme0n1p2
 mkfs.ext4 /dev/nvme0n1p3
-swapon /dev/sda2
-
 
 # Mount the system 
 mount /dev/nvme0n1p3 /mnt/gentoo
@@ -16,10 +18,17 @@ tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
 
 # Config portage
 vi /mnt/gentoo/etc/portage/make.conf
-# add -march=native
+COMMON_FLAGS="-march=native -02 -pipe"
 MAKEOPTS="-jx"
-USE="X elogind -kde -smth"
+USE="X elogind profile -kde -smth"
 ACCEPT_LICENSE="*"
+INPUT_DEVICES="libinput synaptics"
+## (For NVIDIA cards)
+VIDEO_CARDS="nouveau"
+VIDEO_CARDS="nvidia"
+## (For AMD/ATI cards)
+VIDEO_CARDS="radeon amdgpu"
+
 
 mirrorselect -i -o >> /mnt/gentoo/etc/portage/make.conf
 
@@ -154,7 +163,7 @@ vim /etc/conf.d/display-manager
 
 rc-update add display-manager default
 
-rc-service display-manager start
+emerge -aq xterm dwm st git alacritty
 
 exit
 
