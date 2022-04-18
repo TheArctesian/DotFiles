@@ -7,6 +7,6 @@ git push
 
 # you should copy this to your bin so it is a exacutable
 # to do this first make sure it is a executable
-# chmod +x lazygit.sh
+# chmod +x lazygit
 # then copy it to your bin directory
-# sudo cp lazygit.sh ~/bin/
+# sudo cp lazygit ~/bin/
