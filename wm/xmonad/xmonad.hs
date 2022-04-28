@@ -12,8 +12,10 @@ import System.Exit (exitSuccess)
 import System.IO (hPutStrLn)
 
 -- hooks
+import XMonad.Util.EZConfig (additionalKeysP)
 import XMonad.Hooks.DynamicLog(dynamicLogWithPP, wrap, xmobarPP, xmobarColor, shorten, PP(..))
 import XMonad.Hooks.ManageDocks
+import XMonad.Actions.CycleWS (Direction1D(..), moveTo, shiftTo, WSType(..), nextScreen, prevScreen)
 import XMonad.Hooks.EwmhDesktops
 
 -- layout
@@ -69,8 +71,16 @@ myWorkspaces = [" 1 ", " 2 "," 3 ", " 4 ", " 5 ", " 6", " 7", " 8 ", " 9 "]
 windowCount :: X (Maybe String)
 windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
 
+myKeys :: [(String, X ())]
+myKeys = [ ("M-x r", spawn "xmonad --recompile")       -- Recompiles xmonad,
+	, ("M-x 3", spawn "scrot" ) --Takes full screenshot 
+	, ("M-x 4", spawn "scrot -s ") --Adjust screenshot
+ 	     ]
+
+
+
 --------------------------------------------------------------------------------------------------------------------------------------------
--- Layout
+-- Workspace
 myWorkspaceIndices = M.fromList $ zipWith (,) myWorkspaces [1..] -- (,) == \x y -> (x,y)
 
 clickable ws = "<action=xdotool key super+"++show i++">"++ws++"</action>"
@@ -78,6 +88,8 @@ clickable ws = "<action=xdotool key super+"++show i++">"++ws++"</action>"
 mySpacing :: Integer -> l a -> ModifiedLayout Spacing l a
 mySpacing i = spacingRaw False (Border 0 i 0 i) True (Border i 0 i 0) True
 
+
+-- Layout
 tall =
   renamed [Replace "Tall"] $
     mySpacing myWindowGap $
@@ -115,8 +127,10 @@ myLayout =
 
 main :: IO ()
 main = do
-  xmproc0 <- spawnPipe "~/.fehbg"
+  xmproc3 <- spawnPipe "picom --config ~/.config/picom/picom.conf"
   xmproc1 <- spawnPipe "picom"
+  xmproc0 <- spawnPipe "~/.fehbg"
+  xmporc4 <- spawnPipe "xsetroot -cursor_name left_ptr"
   xmproc2 <- spawnPipe "xmobar"
   xmonad $ docks $ ewmh def
         { terminal           = myTerminal,
@@ -152,4 +166,4 @@ main = do
               , ppOrder  = \(ws:l:t:ex) -> [ws,l]++ex++[t]
 
         }
-}
+}`additionalKeysP` myKeys
