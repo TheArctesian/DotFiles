@@ -1,0 +1,1 @@
+cp ./lgit ~/.local/bin
