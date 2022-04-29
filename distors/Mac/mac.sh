@@ -28,3 +28,4 @@ brew install --cask brave-browser
 brew install --cask signal
 brew install --cask libreoffice
 brew install --cask tor-browser
+brew install exa

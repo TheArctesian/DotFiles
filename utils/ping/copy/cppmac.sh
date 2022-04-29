@@ -1,0 +1,1 @@
+cp ./p ~/.local/bin
