@@ -6,6 +6,8 @@ mkfs.fat -F 32 /dev/nvme0n1p1
 mkswap /dev/nvme0n1p2
 mkfs.ext4 /dev/nvme0n1p3
 
+# Sync sys time
+ntpd -q -g 
 # Pacman Repo Setup
 pacman -Syy
 pacman -S reflector

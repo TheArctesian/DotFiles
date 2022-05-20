@@ -13,6 +13,7 @@ mkfs.ext4 /dev/nvme0n1p3
 # Mount the system 
 mount /dev/nvme0n1p3 /mnt/gentoo
 cd /mnt/gentoo
+ntpd -q -g # sync system time
 links gentoo.org/downloads
 tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
 
