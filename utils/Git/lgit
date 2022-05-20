@@ -1,10 +1,11 @@
 #!/bin/bash
-echo "Chose your commit message" | lolcat -a 
-read commitMessage
-git add .
-git commit -m "$commitMessage"
-git push
-
+# if [ $1 != ""]; then
+    git add .
+    git commit -m "$1"
+    git push
+# else 
+    echo add message as second argument
+# fi
 # you should copy this to your bin so it is a exacutable
 # to do this first make sure it is a executable
 # chmod +x lazygit
