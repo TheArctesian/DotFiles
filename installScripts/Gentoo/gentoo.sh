@@ -1,8 +1,16 @@
 # set up wifi
 net-setup eth0
 
+# or just test
+ping -c 3 gentoo.org
+
+# check the disks
 fdisk -l 
-fdisk /dev/nvme0n1
+# or
+lsblk
+
+# fmt the drive replace sda with main boot drive
+fdisk /dev/sda
 
 # Format Disks
 mkfs.fat -F 32 /dev/nvme0n1p1
