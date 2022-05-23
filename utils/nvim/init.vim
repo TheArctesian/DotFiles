@@ -10,10 +10,11 @@
 : set expandtab
 : set cursorline 
 : syntax on
-" set spell
 " Plugins
 call plug#begin()
 Plug 'https://github.com/vim-airline/vim-airline'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'romgrk/barbar.nvim'
 Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'https://github.com/preservim/nerdtree'
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
