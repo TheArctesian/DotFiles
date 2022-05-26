@@ -1,9 +1,6 @@
-#!/bin/bash
-# if [ $1 != ""]; then
     git add .
     git commit -m "$1"
     git push
-# fi
 # you should copy this to your bin so it is a exacutable
 # to do this first make sure it is a executable
 # chmod +x lazygit

@@ -1,1 +1,1 @@
-cp ./lgit ~/.local/bin
+sudo cp ./lgit /usr/local/bin
