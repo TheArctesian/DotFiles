@@ -156,6 +156,18 @@ permit :wheel
 # GUI
 emerge --ask x11-base/xorg-server
 emerge --pretend --verbose x11-base/xorg-drivers
+
+# KDE 
+eselect profile set default/linux/amd64/17.1/desktop/plasma
+emerge -aq plasma-meta plasma-desktop
+env-update && source /etc/profile
+rc-update add elogind boot
+rc-service elogind start
+emerge --ask --noreplace gui-libs/display-manager-init
+vim /etc/conf.d/display-manager
+   DISPLAYMANAGER="ssdm"
+
+# Gnome 
 eselect profile set default/linux/amd64/17.1/desktop/gnome
 emerge --ask gnome-base/gnome-light
 env-update && source /etc/profile
@@ -164,6 +176,9 @@ rc-service elogind start
 emerge --ask --noreplace gui-libs/display-manager-init
 vim /etc/conf.d/display-manager
    DISPLAYMANAGER="gdm"
+
+# TODO: DWM 
+
 
 # Display Manager
 rc-update add display-manager default
