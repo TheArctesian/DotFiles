@@ -1,0 +1,2 @@
+alias upg="sudo apt-get upgrage"
+alias upd="sudo apt-get upgradse"

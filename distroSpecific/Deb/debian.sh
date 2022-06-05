@@ -1,22 +1,23 @@
 # chmod +x ubuntu.sh 
+
 # System update
 sudo apt update -y
 sudo apt upgrade -y 
 sudo apt install snapd -y
 sudo apt install neofetch -y
 sudo apt install gnome-tweaks -y
-# Install packages
 
+# Install packages
 
 sudo apt install curl -y
 sudo apt install exfat-utils -y
 sudo apt install file -y
 sudo apt install git -y
 sudo apt install vim -y
-sudo snap install keepassxc
+
 # Creative
 sudo apt install gimp -y
-sudo snap install blender -y
+sudo snap install blender -classic
 
 # Development
 sudo snap install code --classic -y
@@ -67,24 +68,11 @@ sudo apt install cargo -y
 sudo apt install fish -y
 sudo apt install fonts-firacode -y
 sudo apt install fonts-hack-ttf -y
-curl -L https://get.oh-my.fish | fish
-chsh -s `which fish`
-fish
-omf install aight
+
 # Make dir 
-cd
-cd desktop
-mkdir scripts
-mkdir work
-mkdir school
-cd school 
 git clone https://github.com/TheArctesian/SchoolFiles.git
 git config --global user.email "stephen.d.okita@gmail.com"
 git config --global user.name "theArctesian"
 git config --global credential.helper store #shut up i like it
 sudo apt-get upgrade && sudo apt-get upgrade
 
-#checks 
-java -version 
-npm -v 
-python --version
