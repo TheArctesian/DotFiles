@@ -11,12 +11,10 @@ sudo dnf install exfat-utils -y
 sudo dnf install file -y
 sudo dnf install git -y
 sudo dnf install vim -y
-sudo snap install core
-sudo snap install keepassxc
 
 # Flat
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub com.discordapp.Discord
+flatpak install flathub com.discordapp.Discord -y
 
 # Creative
 sudo dnf install gimp -y
@@ -25,7 +23,7 @@ sudo dnf install blender -y
 # Development
 sudo dnf install akmod-nvidia
 sudo dnf install build-essential -y
-sudo snap install bpytop 
+sudo snap install bpytop -y 
 sudo dnf install dnf-plugins-core -y
 
 # npm
@@ -39,6 +37,7 @@ sudo dnf install cargo -y
 sudo dnf install fish -y
 sudo dnf install fonts-firacode -y
 sudo dnf install fonts-hack-ttf -y
+
 # git 
 
 git config --global user.email "stephen.d.okita@gmail.com"
@@ -47,3 +46,6 @@ git config --global credential.helper store #shut up i like it
 
 #checks 
 sudo dnf upgrade --refresh -y
+
+neofetch
+
