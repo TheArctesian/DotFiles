@@ -1,0 +1,9 @@
+[Unit]
+Description=A service that procs my eath miner so I can do it over ssh
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/mine
+User=daniel
+[Install]
+WantedBy=multi-user.target
