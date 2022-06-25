@@ -104,6 +104,7 @@ full =
   renamed [Replace "Full"] $
     mySpacing myWindowGap $
         Full
+
 spiralLayout =
   renamed [Replace "Spiral"] $
     mySpacing myWindowGap $
