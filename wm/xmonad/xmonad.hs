@@ -73,9 +73,9 @@ windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace
 
 myKeys :: [(String, X ())]
 myKeys = [ ("M-x r", spawn "xmonad --recompile")       -- Recompiles xmonad,
-	, ("M-x 3", spawn "scrot" ) --Takes full screenshot 
-	, ("M-x 4", spawn "scrot -s ") --Adjust screenshot
- 	     ]
+    , ("M-x 3", spawn "scrot" ) --Takes full screenshot 
+    , ("M-x 4", spawn "scrot -s ") --Adjust screenshot
+    ]
 
 
 
