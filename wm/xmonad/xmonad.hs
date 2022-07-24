@@ -29,7 +29,6 @@ import XMonad.Layout.Grid
 import XMonad.Layout.MultiColumns
 import XMonad.Layout.Spiral
 import Data.Ratio -- this makes the '%' operator available (optional)
-
 -- actions
 import XMonad.Actions.CopyWindow(copy, kill1, copyToAll, killAllOtherCopies)
 import XMonad.Actions.Submap(submap)
@@ -40,6 +39,7 @@ import XMonad.Util.Run (spawnPipe)
 --import XMonad.Util.SpawnOnce
 import XMonad.Util.NamedScratchpad
 import XMonad.Util.SpawnOnce
+import XMonad.Hooks.StatusBar.PP
 
 -- keys
 import Graphics.X11.ExtraTypes.XF86
@@ -104,7 +104,6 @@ full =
   renamed [Replace "Full"] $
     mySpacing myWindowGap $
         Full
-
 spiralLayout =
   renamed [Replace "Spiral"] $
     mySpacing myWindowGap $
@@ -123,12 +122,11 @@ myLayout =
   avoidStruts $ smartBorders myDefaultLayout
   --smartBorders myDefaultLayout
   where
-    myDefaultLayout = tall ||| wide ||| grid ||| spiralLayout ||| threeLayout
+    myDefaultLayout = tall ||| full ||| wide ||| grid ||| spiralLayout ||| threeLayout
 --------------------------------------------------------------------------------------------------------------------------------------------
 
 main :: IO ()
 main = do
-  xmproc3 <- spawnPipe "picom --config ~/.config/picom/picom.conf"
   xmproc1 <- spawnPipe "picom"
   xmproc0 <- spawnPipe "~/.fehbg"
   xmporc4 <- spawnPipe "xsetroot -cursor_name left_ptr"
@@ -143,7 +141,7 @@ main = do
           layoutHook         = myLayout,
           normalBorderColor  = myNormalBorderColor,
           workspaces         = myWorkspaces,
-          logHook            = dynamicLogWithPP $ namedScratchpadFilterOutWorkspacePP $ xmobarPP {
+          logHook            = dynamicLogWithPP $ filterOutWsPP [scratchpadWorkspaceTag] $ xmobarPP {
                 ppOutput = \x -> hPutStrLn xmproc2 x   -- xmobar on monitor 1
 -- Current workspace
               , ppCurrent = xmobarColor color06 "" . wrap
