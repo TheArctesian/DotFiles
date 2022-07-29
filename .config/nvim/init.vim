@@ -1,5 +1,6 @@
 set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching 
+
 set ignorecase              " case insensitive 
 set mouse=v                 " middle-click paste with 
 set hlsearch                " highlight search 
@@ -11,6 +12,7 @@ set expandtab               " converts tabs to white space
 set shiftwidth=4            " width for auto indents
 set autoindent              " indent a new line 
                             " the same amount as the line just typed
+
 set number                  " add line numbers
 set wildmode=longest,list   " get bash-like tab completions
 filetype plugin indent on   "allow auto-indenting depending on file type
@@ -22,7 +24,6 @@ set cursorline              " highlight current cursor line
 set ttyfast                 " Speed up scrolling in Vim
 set spell                 " enable spell check 
 set noswapfile            " disable creating swap file
-
 
 
 call plug#begin()
@@ -54,7 +55,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tabline_format = '%tabline_tabs%'
 let g:airline_powerline_fonts=1
 "Vterm
-et g:vterm_map_toggleterm = '<C-t>'
+let g:vterm_map_toggleterm = '<C-t>'
 let g:vterm_map_togglefocus = '<C-q>'
 let g:vterm_map_zoomnormal = 'a'
 let g:vterm_map_zoomterm = ';a'
@@ -65,11 +66,9 @@ hi LineNr     ctermbg=NONE guibg=NONE
 hi SignColumn ctermbg=NONE guibg=NONE
 hi Comment cterm=italic
 "k color schemes
-if (has(“termguicolors”))
-    set termguicolors
-endif
+set termguicolors
 syntax enable
-colorscheme evening
+"colorscheme evening
 colorscheme dracula" open new split panes to right and below
 set splitright
 set splitbelow
@@ -85,3 +84,11 @@ set splitbelow
  nnoremap <C-l> <C-w>l
 
  let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-clangd', 'coc-solidity', 'coc-rls', 'coc-pyright', 'coc-markdownlint', 'coc-html', 'coc-java', 'coc-tsserver', 'coc-go', ]
+
+" Neovide
+
+let g:neovide_floating_blur_amount_x = 2.0
+let g:neovide_floating_blur_amount_y = 2.0
+let g:neovide_transparency=0.8
+let g:neovide_cursor_vfx_mode = "torpedo"
+let g:neovide_cursor_vfx_particle_lifetime=1.2
