@@ -43,4 +43,4 @@ wsl --install
 
 
 
-# When you relise that windows is a shit os and want to go back to linux here https://github.com/linux-surface/linux-surface/wiki/Installation-and-Setup
+# When you realise that windows is a shit os and want to go back to linux here https://github.com/linux-surface/linux-surface/wiki/Installation-and-Setup
