@@ -1,1 +1,1 @@
-sudo pacman -S xfce-power-manager dunst
+yay -S xfce-power-manager dunst
