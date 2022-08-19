@@ -127,10 +127,12 @@ myLayout =
 
 main :: IO ()
 main = do
-  xmproc1 <- spawnPipe "picom"
   xmproc0 <- spawnPipe "~/.fehbg"
-  xmporc4 <- spawnPipe "xsetroot -cursor_name left_ptr"
+  xmproc1 <- spawnPipe "picom"
   xmproc2 <- spawnPipe "xmobar"
+  xmproc3 <- spawnPipe "xfce4-power-manager"
+  xmporc4 <- spawnPipe "dunst"
+  xmporc5 <- spawnPipe "xsetroot -cursor_name left_ptr"
   xmonad $ docks $ ewmh def
         { terminal           = myTerminal,
           focusFollowsMouse  = myFocusFollowsMouse,
