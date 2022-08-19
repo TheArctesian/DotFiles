@@ -16,6 +16,9 @@ alias py "python3"
 alias clok "tty-clock -c -C 4 -S"
 alias pull "git pull"
 alias neo "neovide"
+alias skl "cd Scripts/School"
+alias per "cd Scripts/Personal"
+alias pro "cd Scripts/Project"
 
 fish_add_path /home/arctesian/.spicetify
 
