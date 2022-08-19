@@ -1,0 +1,8 @@
+    git add .
+    git commit -m "$1"
+    git push
+# you should copy this to your bin so it is a exacutable
+# to do this first make sure it is a executable
+# chmod +x lazygit
+# then copy it to your bin directory
+# sudo cp lazygit ~/bin/
