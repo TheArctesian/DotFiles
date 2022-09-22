@@ -852,6 +852,7 @@ colors: *Dracula
 window:
   opacity: 0.9
 
+  decorations: full
   padding: 
     x: 20
     y: 20
