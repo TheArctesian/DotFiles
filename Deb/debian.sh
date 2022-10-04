@@ -3,47 +3,22 @@
 # System update
 sudo apt update -y
 sudo apt upgrade -y 
-sudo apt install snapd -y
 sudo apt install neofetch -y
-sudo apt install gnome-tweaks -y
-
 # Install packages
 
 sudo apt install curl -y
-sudo apt install exfat-utils -y
 sudo apt install file -y
 sudo apt install git -y
-sudo apt install vim -y
 
-# Creative
-sudo apt install gimp -y
-sudo snap install blender -classic
 
 # Development
-sudo snap install code --classic -y
 sudo apt install build-essential -y
 sudo apt install python3 -y
 sudo apt install python3-pip -y
-sudo snap install bpytop 
-sudo snap install cointop
-sudo snap install tmux
-sudo snap install postman
-
 
 # Java (ew)
 sudo apt install default-jdk -y
 sudo apt update -y
-sudo apt install default-jre -y
-
-# RW
-sudo snap install onlyoffice-desktopeditors
-sudo snap install brave
-sudo snap install spotify
-
-
-# Socail 
-sudo snap install signal-desktop
-sudo snap install discord
 
 # Fun stuff
 sudo apt install figlet -y
@@ -51,15 +26,10 @@ sudo apt install lolcat -y
 
 # npm
 sudo apt install nodejs -y
-sudo npm install -g sass sass-lint -y
-sudo npm install -g typescript -y
-sudo npm install -g prettier -y
-sudo npm install -g yarn -y
-sudo npm install -g truffle -y
-
+sudo npm i -g typescript -y
+sudo npm i -g yarn -y
 
 # rust
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 sudo apt install rustc -y
 sudo apt install cargo -y
 
@@ -69,10 +39,5 @@ sudo apt install fish -y
 sudo apt install fonts-firacode -y
 sudo apt install fonts-hack-ttf -y
 
-# Make dir 
-git clone https://github.com/TheArctesian/SchoolFiles.git
-git config --global user.email "stephen.d.okita@gmail.com"
-git config --global user.name "theArctesian"
-git config --global credential.helper store #shut up i like it
 sudo apt-get upgrade && sudo apt-get upgrade
 
