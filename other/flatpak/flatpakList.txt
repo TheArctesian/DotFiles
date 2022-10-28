@@ -1,0 +1,182 @@
+Brave Browser	com.brave.Browser	1.45.114	stable	system
+Discord	com.discordapp.Discord	0.0.21	stable	system
+Extension Manager	com.mattjakeman.ExtensionManager	0.4.0	stable	system
+Spotify	com.spotify.Client	1.1.84.716.gc5f8b819	stable	system
+VSCodium	com.vscodium.codium	1.72.2.22289	stable	system
+Obsidian	md.obsidian.Obsidian	1.0.3	stable	system
+Freedesktop Platform	org.freedesktop.Platform	21.08.16	21.08	system
+Freedesktop Platform	org.freedesktop.Platform	22.08.2.1	22.08	system
+Mesa	org.freedesktop.Platform.GL.default	21.1.8	20.08	system
+Mesa	org.freedesktop.Platform.GL.default	21.3.9	21.08	system
+Mesa	org.freedesktop.Platform.GL.default	mesa-22.1.7	22.08	system
+Intel	org.freedesktop.Platform.VAAPI.Intel		20.08	system
+Intel	org.freedesktop.Platform.VAAPI.Intel		21.08	system
+Intel	org.freedesktop.Platform.VAAPI.Intel		22.08	system
+ffmpeg-full	org.freedesktop.Platform.ffmpeg-full		21.08	system
+openh264	org.freedesktop.Platform.openh264	2.1.0	2.0	system
+openh264	org.freedesktop.Platform.openh264	2.1.0	2.2.0	system
+openh264	org.freedesktop.Platform.openh264	2.1.0	2.3.0	system
+Freedesktop SDK	org.freedesktop.Sdk	20.08.21	20.08	system
+Freedesktop SDK	org.freedesktop.Sdk	22.08.2.1	22.08	system
+GNOME Application Platform version 42	org.gnome.Platform		42	system
+GNOME Application Platform version 43	org.gnome.Platform		43	system
+ONLYOFFICE Desktop Editors	org.onlyoffice.desktopeditors	7.1.1	stable	system
+Telegram Desktop	org.telegram.desktop	4.2.4	stable	system
+Telegram Desktop Webview Add-on	org.telegram.desktop.webview	2.38.1	stable	system
+Zotero	org.zotero.Zotero	6.0.15	stable	system
+Brave Browser	com.brave.Browser	1.45.114	stable	system
+Discord	com.discordapp.Discord	0.0.21	stable	system
+Extension Manager	com.mattjakeman.ExtensionManager	0.4.0	stable	system
+Spotify	com.spotify.Client	1.1.84.716.gc5f8b819	stable	system
+VSCodium	com.vscodium.codium	1.72.2.22289	stable	system
+Obsidian	md.obsidian.Obsidian	1.0.3	stable	system
+Freedesktop Platform	org.freedesktop.Platform	21.08.16	21.08	system
+Freedesktop Platform	org.freedesktop.Platform	22.08.2.1	22.08	system
+Mesa	org.freedesktop.Platform.GL.default	21.1.8	20.08	system
+Mesa	org.freedesktop.Platform.GL.default	21.3.9	21.08	system
+Mesa	org.freedesktop.Platform.GL.default	mesa-22.1.7	22.08	system
+Intel	org.freedesktop.Platform.VAAPI.Intel		20.08	system
+Intel	org.freedesktop.Platform.VAAPI.Intel		21.08	system
+Intel	org.freedesktop.Platform.VAAPI.Intel		22.08	system
+ffmpeg-full	org.freedesktop.Platform.ffmpeg-full		21.08	system
+openh264	org.freedesktop.Platform.openh264	2.1.0	2.0	system
+openh264	org.freedesktop.Platform.openh264	2.1.0	2.2.0	system
+openh264	org.freedesktop.Platform.openh264	2.1.0	2.3.0	system
+Freedesktop SDK	org.freedesktop.Sdk	20.08.21	20.08	system
+Freedesktop SDK	org.freedesktop.Sdk	22.08.2.1	22.08	system
+GNOME Application Platform version 42	org.gnome.Platform		42	system
+GNOME Application Platform version 43	org.gnome.Platform		43	system
+ONLYOFFICE Desktop Editors	org.onlyoffice.desktopeditors	7.1.1	stable	system
+Telegram Desktop	org.telegram.desktop	4.2.4	stable	system
+Telegram Desktop Webview Add-on	org.telegram.desktop.webview	2.38.1	stable	system
+Zotero	org.zotero.Zotero	6.0.15	stable	system
+Brave Browser	com.brave.Browser	1.45.114	stable	system
+Discord	com.discordapp.Discord	0.0.21	stable	system
+Extension Manager	com.mattjakeman.ExtensionManager	0.4.0	stable	system
+Spotify	com.spotify.Client	1.1.84.716.gc5f8b819	stable	system
+VSCodium	com.vscodium.codium	1.72.2.22289	stable	system
+Obsidian	md.obsidian.Obsidian	1.0.3	stable	system
+Freedesktop Platform	org.freedesktop.Platform	21.08.16	21.08	system
+Freedesktop Platform	org.freedesktop.Platform	22.08.2.1	22.08	system
+Mesa	org.freedesktop.Platform.GL.default	21.1.8	20.08	system
+Mesa	org.freedesktop.Platform.GL.default	21.3.9	21.08	system
+Mesa	org.freedesktop.Platform.GL.default	mesa-22.1.7	22.08	system
+Intel	org.freedesktop.Platform.VAAPI.Intel		20.08	system
+Intel	org.freedesktop.Platform.VAAPI.Intel		21.08	system
+Intel	org.freedesktop.Platform.VAAPI.Intel		22.08	system
+ffmpeg-full	org.freedesktop.Platform.ffmpeg-full		21.08	system
+openh264	org.freedesktop.Platform.openh264	2.1.0	2.0	system
+openh264	org.freedesktop.Platform.openh264	2.1.0	2.2.0	system
+openh264	org.freedesktop.Platform.openh264	2.1.0	2.3.0	system
+Freedesktop SDK	org.freedesktop.Sdk	20.08.21	20.08	system
+Freedesktop SDK	org.freedesktop.Sdk	22.08.2.1	22.08	system
+GNOME Application Platform version 42	org.gnome.Platform		42	system
+GNOME Application Platform version 43	org.gnome.Platform		43	system
+ONLYOFFICE Desktop Editors	org.onlyoffice.desktopeditors	7.1.1	stable	system
+Telegram Desktop	org.telegram.desktop	4.2.4	stable	system
+Telegram Desktop Webview Add-on	org.telegram.desktop.webview	2.38.1	stable	system
+Zotero	org.zotero.Zotero	6.0.15	stable	system
+Brave Browser	com.brave.Browser	1.45.114	stable	system
+Discord	com.discordapp.Discord	0.0.21	stable	system
+Extension Manager	com.mattjakeman.ExtensionManager	0.4.0	stable	system
+Spotify	com.spotify.Client	1.1.84.716.gc5f8b819	stable	system
+VSCodium	com.vscodium.codium	1.72.2.22289	stable	system
+Obsidian	md.obsidian.Obsidian	1.0.3	stable	system
+Freedesktop Platform	org.freedesktop.Platform	21.08.16	21.08	system
+Freedesktop Platform	org.freedesktop.Platform	22.08.2.1	22.08	system
+Mesa	org.freedesktop.Platform.GL.default	21.1.8	20.08	system
+Mesa	org.freedesktop.Platform.GL.default	21.3.9	21.08	system
+Mesa	org.freedesktop.Platform.GL.default	mesa-22.1.7	22.08	system
+Intel	org.freedesktop.Platform.VAAPI.Intel		20.08	system
+Intel	org.freedesktop.Platform.VAAPI.Intel		21.08	system
+Intel	org.freedesktop.Platform.VAAPI.Intel		22.08	system
+ffmpeg-full	org.freedesktop.Platform.ffmpeg-full		21.08	system
+openh264	org.freedesktop.Platform.openh264	2.1.0	2.0	system
+openh264	org.freedesktop.Platform.openh264	2.1.0	2.2.0	system
+openh264	org.freedesktop.Platform.openh264	2.1.0	2.3.0	system
+Freedesktop SDK	org.freedesktop.Sdk	20.08.21	20.08	system
+Freedesktop SDK	org.freedesktop.Sdk	22.08.2.1	22.08	system
+GNOME Application Platform version 42	org.gnome.Platform		42	system
+GNOME Application Platform version 43	org.gnome.Platform		43	system
+ONLYOFFICE Desktop Editors	org.onlyoffice.desktopeditors	7.1.1	stable	system
+Telegram Desktop	org.telegram.desktop	4.2.4	stable	system
+Telegram Desktop Webview Add-on	org.telegram.desktop.webview	2.38.1	stable	system
+Zotero	org.zotero.Zotero	6.0.15	stable	system
+Brave Browser	com.brave.Browser	1.45.114	stable	system
+Discord	com.discordapp.Discord	0.0.21	stable	system
+Extension Manager	com.mattjakeman.ExtensionManager	0.4.0	stable	system
+Spotify	com.spotify.Client	1.1.84.716.gc5f8b819	stable	system
+VSCodium	com.vscodium.codium	1.72.2.22289	stable	system
+Obsidian	md.obsidian.Obsidian	1.0.3	stable	system
+Freedesktop Platform	org.freedesktop.Platform	21.08.16	21.08	system
+Freedesktop Platform	org.freedesktop.Platform	22.08.2.1	22.08	system
+Mesa	org.freedesktop.Platform.GL.default	21.1.8	20.08	system
+Mesa	org.freedesktop.Platform.GL.default	21.3.9	21.08	system
+Mesa	org.freedesktop.Platform.GL.default	mesa-22.1.7	22.08	system
+Intel	org.freedesktop.Platform.VAAPI.Intel		20.08	system
+Intel	org.freedesktop.Platform.VAAPI.Intel		21.08	system
+Intel	org.freedesktop.Platform.VAAPI.Intel		22.08	system
+ffmpeg-full	org.freedesktop.Platform.ffmpeg-full		21.08	system
+openh264	org.freedesktop.Platform.openh264	2.1.0	2.0	system
+openh264	org.freedesktop.Platform.openh264	2.1.0	2.2.0	system
+openh264	org.freedesktop.Platform.openh264	2.1.0	2.3.0	system
+Freedesktop SDK	org.freedesktop.Sdk	20.08.21	20.08	system
+Freedesktop SDK	org.freedesktop.Sdk	22.08.2.1	22.08	system
+GNOME Application Platform version 42	org.gnome.Platform		42	system
+GNOME Application Platform version 43	org.gnome.Platform		43	system
+ONLYOFFICE Desktop Editors	org.onlyoffice.desktopeditors	7.1.1	stable	system
+Telegram Desktop	org.telegram.desktop	4.2.4	stable	system
+Telegram Desktop Webview Add-on	org.telegram.desktop.webview	2.38.1	stable	system
+Zotero	org.zotero.Zotero	6.0.15	stable	system
+Brave Browser	com.brave.Browser	1.45.114	stable	system
+Discord	com.discordapp.Discord	0.0.21	stable	system
+Extension Manager	com.mattjakeman.ExtensionManager	0.4.0	stable	system
+Spotify	com.spotify.Client	1.1.84.716.gc5f8b819	stable	system
+VSCodium	com.vscodium.codium	1.72.2.22289	stable	system
+Obsidian	md.obsidian.Obsidian	1.0.3	stable	system
+Freedesktop Platform	org.freedesktop.Platform	21.08.16	21.08	system
+Freedesktop Platform	org.freedesktop.Platform	22.08.2.1	22.08	system
+Mesa	org.freedesktop.Platform.GL.default	21.1.8	20.08	system
+Mesa	org.freedesktop.Platform.GL.default	21.3.9	21.08	system
+Mesa	org.freedesktop.Platform.GL.default	mesa-22.1.7	22.08	system
+Intel	org.freedesktop.Platform.VAAPI.Intel		20.08	system
+Intel	org.freedesktop.Platform.VAAPI.Intel		21.08	system
+Intel	org.freedesktop.Platform.VAAPI.Intel		22.08	system
+ffmpeg-full	org.freedesktop.Platform.ffmpeg-full		21.08	system
+openh264	org.freedesktop.Platform.openh264	2.1.0	2.0	system
+openh264	org.freedesktop.Platform.openh264	2.1.0	2.2.0	system
+openh264	org.freedesktop.Platform.openh264	2.1.0	2.3.0	system
+Freedesktop SDK	org.freedesktop.Sdk	20.08.21	20.08	system
+Freedesktop SDK	org.freedesktop.Sdk	22.08.2.1	22.08	system
+GNOME Application Platform version 42	org.gnome.Platform		42	system
+GNOME Application Platform version 43	org.gnome.Platform		43	system
+ONLYOFFICE Desktop Editors	org.onlyoffice.desktopeditors	7.1.1	stable	system
+Telegram Desktop	org.telegram.desktop	4.2.4	stable	system
+Telegram Desktop Webview Add-on	org.telegram.desktop.webview	2.38.1	stable	system
+Zotero	org.zotero.Zotero	6.0.15	stable	system
+Brave Browser	com.brave.Browser	1.45.114	stable	system
+Discord	com.discordapp.Discord	0.0.21	stable	system
+Extension Manager	com.mattjakeman.ExtensionManager	0.4.0	stable	system
+Spotify	com.spotify.Client	1.1.84.716.gc5f8b819	stable	system
+VSCodium	com.vscodium.codium	1.72.2.22289	stable	system
+Obsidian	md.obsidian.Obsidian	1.0.3	stable	system
+Freedesktop Platform	org.freedesktop.Platform	21.08.16	21.08	system
+Freedesktop Platform	org.freedesktop.Platform	22.08.2.1	22.08	system
+Mesa	org.freedesktop.Platform.GL.default	21.1.8	20.08	system
+Mesa	org.freedesktop.Platform.GL.default	21.3.9	21.08	system
+Mesa	org.freedesktop.Platform.GL.default	mesa-22.1.7	22.08	system
+Intel	org.freedesktop.Platform.VAAPI.Intel		20.08	system
+Intel	org.freedesktop.Platform.VAAPI.Intel		21.08	system
+Intel	org.freedesktop.Platform.VAAPI.Intel		22.08	system
+ffmpeg-full	org.freedesktop.Platform.ffmpeg-full		21.08	system
+openh264	org.freedesktop.Platform.openh264	2.1.0	2.0	system
+openh264	org.freedesktop.Platform.openh264	2.1.0	2.2.0	system
+openh264	org.freedesktop.Platform.openh264	2.1.0	2.3.0	system
+Freedesktop SDK	org.freedesktop.Sdk	20.08.21	20.08	system
+Freedesktop SDK	org.freedesktop.Sdk	22.08.2.1	22.08	system
+GNOME Application Platform version 42	org.gnome.Platform		42	system
+GNOME Application Platform version 43	org.gnome.Platform		43	system
+ONLYOFFICE Desktop Editors	org.onlyoffice.desktopeditors	7.1.1	stable	system
+Telegram Desktop	org.telegram.desktop	4.2.4	stable	system
+Telegram Desktop Webview Add-on	org.telegram.desktop.webview	2.38.1	stable	system
+Zotero	org.zotero.Zotero	6.0.15	stable	system
