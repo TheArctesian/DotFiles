@@ -22,7 +22,7 @@ set clipboard=unnamedplus   " using system clipboard
 filetype plugin on
 set cursorline              " highlight current cursor line
 set ttyfast                 " Speed up scrolling in Vim
-set spell                 " enable spell check 
+set spell  spelllang=en_gb                " enable spell check 
 set noswapfile            " disable creating swap file
 
 
@@ -54,12 +54,14 @@ let g:airline_theme="violet"
 let g:airline#extensions#tabline#enabled = 1 
 let g:airline#extensions#tabline#tabline_format = '%tabline_tabs%'
 let g:airline_powerline_fonts=1
-"Vterm
+" Vterm 
 let g:vterm_map_toggleterm = '<C-t>'
 let g:vterm_map_togglefocus = '<C-q>'
 let g:vterm_map_zoomnormal = 'a'
 let g:vterm_map_zoomterm = ';a'
 let g:vterm_map_escape = ';;'
+
+" Color Scheme
 colorscheme space-vim-dark
 hi Normal     ctermbg=NONE guibg=NONE
 hi LineNr     ctermbg=NONE guibg=NONE
@@ -83,7 +85,12 @@ set splitbelow
  nnoremap <C-k> <C-w>k
  nnoremap <C-l> <C-w>l
 
+ " Coc - Auto complete
  let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-clangd', 'coc-solidity', 'coc-rls', 'coc-pyright', 'coc-markdownlint', 'coc-html', 'coc-java', 'coc-tsserver', 'coc-go', ]
+
+inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
+inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
+inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
 " Neovide
 
