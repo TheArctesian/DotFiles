@@ -1,24 +1,33 @@
-if status is-interactive
-    # Commands to run in interactive sessions can go here
-end
+# Greeting 
 function fish_greeting
-	rxfetch
+	pfetch
 	feh --bg-fill --randomize ~/Pictures/wallpaper/*
 end
-alias ls "lsd"
-alias la "lsd -la"
-alias lla "lsd -la"
-alias lt  "lsd --tree"
+
 alias vim "nvim"
-alias cls "clear"
+alias clok "tty-clock -c -C 4 -S"
+
+# doom
+
+alias doom "~/.emacs.d/bin/doom"
+
+# shortcuts
 alias p "ping -c 3 gentoo.org"
 alias py "python3"
-alias clok "tty-clock -c -C 4 -S"
+alias cls "clear"
+
+# Git
 alias pull "git pull"
 alias neo "neovide"
-alias skl "cd Scripts/School"
-alias per "cd Scripts/Personal"
-alias pro "cd Scripts/Project"
 
+# Dir short cuts
+alias skl "cd ~/Scripts/School"
+alias per "cd ~/Scripts/Personal"
+alias conf "cd ~/.config"
+alias pro "cd ~/Scripts/Project"
+alias down "cd ~/Downloads"
+
+# ls 
+alias ls "exa -l"
 fish_add_path /home/arctesian/.spicetify
 
