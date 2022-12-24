@@ -31,3 +31,9 @@ alias down "cd ~/Downloads"
 alias ls "exa -l"
 fish_add_path /home/arctesian/.spicetify
 
+# server
+export LOCAL_IP=`ipconfig getifaddr en0`
+alias serve="browser-sync start -s -f . --no-notify --host $LOCAL_IP --port 9000"
+# npm install -g browser-sync first
+
+
