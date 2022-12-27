@@ -34,10 +34,8 @@ check if connected with
 ```
 station wlan0 show
 ```
-For error
-```shell
-==> ERROR: One or more PGP signatures could not be verified!
-```
-```
-gpg --recv-key (FAILED KEY)
-```
+
+
+For cool Pacman 
+add 
+`ILoveCandy` and uncomment `color` in `/etc/pacman.conf'
