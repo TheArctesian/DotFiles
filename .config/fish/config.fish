@@ -16,6 +16,7 @@ alias p "ping -c 3 gentoo.org"
 alias py "python3"
 alias cls "clear"
 
+alias cat "bat"
 # Git
 alias pull "git pull"
 alias neo "neovide"
@@ -28,12 +29,7 @@ alias pro "cd ~/Scripts/Project"
 alias down "cd ~/Downloads"
 
 # ls 
-alias ls "exa -l"
+alias ls "lsd -l"
 fish_add_path /home/arctesian/.spicetify
 
-# server
-export LOCAL_IP=`ipconfig getifaddr en0`
-alias serve="browser-sync start -s -f . --no-notify --host $LOCAL_IP --port 9000"
-# npm install -g browser-sync first
-
-
+alias server="browser-sync start -s -f . --no-notify --host $LOCAL_UP --port 9000"
