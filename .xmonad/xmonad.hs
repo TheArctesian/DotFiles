@@ -6,10 +6,13 @@ import Data.Tree
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 import Data.Maybe (fromJust)
+import Data.Map (fromList)
+-- import Data.Monoid (mapped)
 
 -- system
 import System.Exit (exitSuccess)
 import System.IO (hPutStrLn)
+-- import XMonad.Actions.Volume
 
 -- hooks
 import XMonad.Util.EZConfig (additionalKeysP)
@@ -59,12 +62,12 @@ import Colors.Dracula
 myModMask              = mod4Mask                                                                 :: KeyMask
 myFocusFollowsMouse    = True                                                                     :: Bool
 myClickJustFocuses     = False                                                                    :: Bool
-myBorderWidth          = 2                                                                        :: Dimension
+myBorderWidth          = 3                                                                        :: Dimension
 myWindowGap            = 25                                                                       :: Integer
 myTerminal             = "alacritty"                                                              :: String
 myFocusedBorderColor   = "#bd93f9"                                                                :: String
 myNormalBorderColor    = "#000000"                                                                :: String
-myBrowser              = "brave"                                                                  :: String
+myBrowser              = "com.brave.Browser"                                                      :: String
 -- myWorkspaces = [" 一 ", " 二 "," 三 ", " 四", " 五 ", " 六", " 七", " 八 ", " 九 "]
 myWorkspaces = [" 1 ", " 2 "," 3 ", " 4 ", " 5 ", " 6", " 7", " 8 ", " 9 "]
 
@@ -73,10 +76,12 @@ windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace
 
 myKeys :: [(String, X ())]
 myKeys = [ ("M-x r", spawn "xmonad --recompile")       -- Recompiles xmonad,
-    , ("M-x 3", spawn "scrot" ) --Takes full screenshot 
-    , ("M-x 4", spawn "scrot -s ") --Adjust screenshot
+    , ("M-x 3", spawn "scrot" )                        --Takes full screenshot 
+    , ("M-x 4", spawn "scrot -s ")                     --Adjust screenshot
+    , ("xF86XK_AudioLowerVolume"   , spawn "pulsemixer --change-volume -2")
+    , ("xF86XK_AudioRaiseVolume"   , spawn "pulsemixer --change-volume -2")
+    , ("M-S-<XF86AudioMute>"   , spawn "pulsemixer --toggle-mute")
     ]
-
 
 
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -123,6 +128,9 @@ myLayout =
   --smartBorders myDefaultLayout
   where
     myDefaultLayout = tall ||| full ||| wide ||| grid ||| spiralLayout ||| threeLayout
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+
 --------------------------------------------------------------------------------------------------------------------------------------------
 
 main :: IO ()
