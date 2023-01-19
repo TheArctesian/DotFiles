@@ -34,12 +34,9 @@ from libqtile.utils import guess_terminal
 """
 On start cmds
 """
-
-
 @hook.subscribe.startup_once
 def autostart():
     processes = [
-        ["feh", "--bg-scale", "--randomize", "~/Pictures/wallpaper/*"],
         ["polybar"],
         ["xfce4-power-manager"],
         ["dunst"],
@@ -49,11 +46,16 @@ def autostart():
     for p in processes:
         subprocess.Popen(p)
 
-
+"""
+Constants
+"""
 mod = "mod4"
 terminal = "alacritty"
+browser = ""
 
-
+"""
+Keys bindings
+"""
 keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
@@ -146,37 +148,37 @@ layout_theme = {
 layouts = [
     layout.MonadWide(**layout_theme),
     # layout.Bsp(**layout_theme),
-    # layout.Stack(stacks=2, **layout_theme),
+    layout.Stack(stacks=2, **layout_theme),
     # layout.Columns(**layout_theme),
     # layout.RatioTile(**layout_theme),
-    # layout.Tile(shift_windows=True, **layout_theme),
+    layout.Tile(shift_windows=True, **layout_theme),
     # layout.VerticalTile(**layout_theme),
     # layout.Matrix(**layout_theme),
-    # layout.Zoomy(**layout_theme),
+    layout.Zoomy(**layout_theme),
     layout.MonadTall(**layout_theme),
     layout.Max(**layout_theme),
     layout.Stack(num_stacks=2, **layout_theme),
     layout.RatioTile(**layout_theme),
-    layout.TreeTab(
-        font="Ubuntu",
-        fontsize=10,
-        sections=["FIRST", "SECOND", "THIRD", "FOURTH"],
-        section_fontsize=10,
-        border_width=2,
-        bg_color="1c1f24",
-        active_bg="c678dd",
-        active_fg="000000",
-        inactive_bg="a9a1e1",
-        inactive_fg="1c1f24",
-        padding_left=0,
-        padding_x=0,
-        padding_y=5,
-        section_top=10,
-        section_bottom=20,
-        level_shift=8,
-        vspace=3,
-        panel_width=200,
-    ),
+    #layout.TreeTab(
+    #    font="Ubuntu",
+    #    fontsize=10,
+    #    sections=["FIRST", "SECOND", "THIRD", "FOURTH"],
+    #    section_fontsize=10,
+    #    border_width=2,
+    #    bg_color="1c1f24",
+    #    active_bg="c678dd",
+    #    active_fg="000000",
+    #    inactive_bg="a9a1e1",
+    #    inactive_fg="1c1f24",
+    #    padding_left=0,
+    #    padding_x=0,
+    #    padding_y=5,
+    #    section_top=10,
+    #    section_bottom=20,
+    #    level_shift=8,
+    #    vspace=3,
+    #    panel_width=200,
+    #),
     layout.Floating(**layout_theme),
 ]
 
@@ -185,6 +187,7 @@ widget_defaults = dict(
     fontsize=12,
     padding=3,
 )
+
 extension_defaults = widget_defaults.copy()
 
 screens = [
@@ -266,7 +269,3 @@ wl_input_rules = None
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
-
-# @hook.subscribe.startup_once
-# def autostart():
-#    subprocess.call(['~/.config/qtile/autostart.sh'])
