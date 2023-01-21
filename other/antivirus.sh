@@ -1,2 +1,2 @@
 sudo freshclam
-sudo clamscan -i -r / 
+time sudo clamscan -i -r / 
