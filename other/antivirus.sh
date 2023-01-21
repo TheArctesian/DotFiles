@@ -1,3 +1,3 @@
 sudo freshclam
 clamscan update
-clamscan -i -r ~/
+clamscan -i -r /
