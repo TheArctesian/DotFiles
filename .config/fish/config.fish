@@ -19,6 +19,7 @@ alias cls "clear"
 alias cat "bat"
 # Git
 alias pull "git pull"
+alias sl "sl | lolcat"
 alias neo "neovide"
 
 # Dir short cuts
