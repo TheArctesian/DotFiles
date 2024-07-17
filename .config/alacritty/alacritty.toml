@@ -1,0 +1,7 @@
+[window]
+dynamic_title = true 
+decorations = "None"
+opacity = 0.8
+padding = { x = 20, y = 20 }
+blur = true 
+
