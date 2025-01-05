@@ -25,6 +25,7 @@ alias neo "neovide"
 # Dir short cuts
 alias skl "cd ~/Scripts/School"
 alias per "cd ~/Scripts/Personal"
+alias wrk "cd ~/Scripts/Work"
 alias conf "cd ~/.config"
 alias pro "cd ~/Scripts/Project"
 alias down "cd ~/Downloads"
