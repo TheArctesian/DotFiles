@@ -16,11 +16,10 @@ alias p "ping -c 3 gentoo.org"
 alias py "python3"
 alias cls "clear"
 
-alias cat "bat"
+# alias cat "bat"
+
 # Git
 alias pull "git pull"
-alias sl "sl | lolcat"
-alias neo "neovide"
 
 # Dir short cuts
 alias skl "cd ~/Scripts/School"
@@ -29,9 +28,11 @@ alias wrk "cd ~/Scripts/Work"
 alias conf "cd ~/.config"
 alias pro "cd ~/Scripts/Project"
 alias down "cd ~/Downloads"
+alias sec "cd ~/Documents/Second\ Brain/"
+alias uni "cd ~/Documents/Second\ Brain/Uni/"
 
 # ls 
-alias ls "lsd -l"
+alias ls "lsd"
 fish_add_path /home/arctesian/.spicetify
 
 alias server="browser-sync start -s -f . --no-notify --host $LOCAL_UP --port 9000"
