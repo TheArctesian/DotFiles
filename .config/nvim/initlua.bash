@@ -20,15 +20,15 @@ install_packages() {
     case $PM in
         "apt")
             sudo apt update
-            sudo apt install -y neovim git curl unzip nodejs npm python3 python3-pip ripgrep fd-find
+            sudo apt install -y neovim git curl unzip nodejs npm python3 python3-pip python3-venv pipx ripgrep fd-find
             ;;
         "dnf")
             sudo dnf update
-            sudo dnf install -y neovim git curl unzip nodejs npm python3 python3-pip ripgrep fd-find
+            sudo dnf install -y neovim git curl unzip nodejs npm python3 python3-pip python3-virtualenv pipx ripgrep fd-find
             ;;
         "pacman")
             sudo pacman -Syu
-            sudo pacman -S neovim git curl unzip nodejs npm python3 python-pip ripgrep fd
+            sudo pacman -S neovim git curl unzip nodejs npm python python-pip python-virtualenv python-pipx ripgrep fd
             ;;
         *)
             echo "Unsupported package manager. Please install dependencies manually."
@@ -39,19 +39,38 @@ install_packages() {
 
 # Install language servers and formatters
 install_language_servers() {
-    # Python
-    pip3 install pyright black
+    local PM=$(get_package_manager)
+    
+    # Ensure pipx is in PATH
+    export PATH="$PATH:$HOME/.local/bin"
+    
+    # Python tools installation using pipx
+    echo "Installing Python language servers and formatters..."
+    pipx install pyright
+    pipx install black
 
     # JavaScript/TypeScript
+    echo "Installing JavaScript/TypeScript language servers and formatters..."
     sudo npm install -g prettier typescript typescript-language-server
 
     # Lua
-    cargo install stylua || {
-        # If cargo is not installed, install it first
-        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-        source $HOME/.cargo/env
+    echo "Installing Lua formatter..."
+    if ! command -v stylua &> /dev/null; then
+        if ! command -v cargo &> /dev/null; then
+            case $PM in
+                "apt")
+                    sudo apt install -y cargo
+                    ;;
+                "dnf")
+                    sudo dnf install -y cargo
+                    ;;
+                "pacman")
+                    sudo pacman -S rust
+                    ;;
+            esac
+        fi
         cargo install stylua
-    }
+    fi
 }
 
 # Install Packer (Neovim package manager)
