@@ -1,0 +1,25 @@
+{
+  "semantic_search": {
+    "embedding_model": "default",
+    "update_config": {
+      "auto_update": true,
+      "update_frequency": "daily",
+      "update_days": null
+    },
+    "extraction": {
+      "pdf_max_pages": 10
+    },
+    "include_fulltext": true,
+    "reranker": {
+      "enabled": false,
+      "model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+      "candidate_multiplier": 3
+    },
+    "chunking": {
+      "enabled": false,
+      "chunk_size": 1500,
+      "overlap": 200,
+      "max_chunks_per_item": 20
+    }
+  }
+}

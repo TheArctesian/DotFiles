@@ -8,26 +8,23 @@ fish_add_path $HOME/.spicetify
 fish_add_path $HOME/.local/bin
 fish_add_path $HOME/.emacs.d/bin
 fish_add_path $HOME/development/flutter/bin
+
+if type -q brew
+    set -l rustup_prefix (brew --prefix rustup 2>/dev/null)
+    and fish_add_path "$rustup_prefix/bin"
+end
+
 # Initialize tools
-zoxide init fish | source
+if type -q zoxide
+    zoxide init fish | source
+end
 
 # ==============================
 # Greeting & Appearance
 # ==============================
 function fish_greeting
-    pfetch
-end
-
-# ==============================
-# Random wallpaper on new session
-# ==============================
-if status is-interactive
-    set -l wp_dir "$HOME/Pictures/wallpapers/framework13"
-    set -l wallpapers $wp_dir/*.png
-    if test (count $wallpapers) -gt 0
-        set -l pick $wallpapers[(random 1 (count $wallpapers))]
-        set -l cfg "$HOME/.config/cosmic/com.system76.CosmicBackground/v1/all"
-        printf '(\n    output: "all",\n    source: Path("%s"),\n    filter_by_theme: true,\n    rotation_frequency: 300,\n    filter_method: Lanczos,\n    scaling_mode: Zoom,\n    sampling_method: Alphanumeric,\n)\n' "$pick" >"$cfg"
+    if type -q pfetch
+        pfetch
     end
 end
 
@@ -40,7 +37,7 @@ alias p="ping -c 3 gentoo.org"
 alias py="python3"
 alias server="browser-sync start -s -f . --no-notify --host $LOCAL_UP --port 9000"
 alias clok="tty-clock -c -C 4 -S"
-alias copy="xclip -sel c <"
+alias copy="pbcopy <"
 alias zcc="zellij --layout ~/.config/zellij/claude.kdl"
 alias zco="zellij --layout ~/.config/zellij/codex.kdl"
 
@@ -61,21 +58,14 @@ function past
     end
 
     # Create backup of the original file if it exists
-    set -l filename $argv[1]
-    if test -f $filename
-        set -l backup $filename.bak
-        cp $filename $backup
+    set -l filename "$argv[1]"
+    if test -f "$filename"
+        set -l backup "$filename.bak"
+        cp "$filename" "$backup"
         echo "Backup saved as $backup"
     end
 
-    # Get clipboard content
-    set -l clipboard_content (xclip -sel c -o)
-
-    # Write to file
-    echo $clipboard_content >$filename
-
-    # Ensure file is properly written by syncing filesystem
-    sync
+    pbpaste >"$filename"
 
     # Display the file content with bat
     echo "Content pasted to $filename:"
@@ -89,8 +79,9 @@ function copydir
     end
 
     set -l target_dir $argv[1]
+    set -l base_dir (pwd -P)
 
-    if not test -d $target_dir
+    if not test -d "$target_dir"
         echo "Error: '$target_dir' is not a directory"
         return 1
     end
@@ -99,29 +90,30 @@ function copydir
     set -l temp_file (mktemp)
 
     # Find all files recursively and process them
-    fd --type f . $target_dir | sort | while read -l file
+    fd --type f --exclude node_modules --exclude .git . $target_dir | sort | while read -l file
         # Get relative path to make header cleaner
-        set -l rel_path (realpath --relative-to=(pwd) $file)
+        set -l absolute_path (path resolve $file)
+        set -l rel_path (string replace -- "$base_dir/" "" $absolute_path)
 
         # Add file header with name and extension
         echo "# $rel_path" >>$temp_file
 
         # Add file content
-        cat $file >>$temp_file
+        command cat "$file" >>"$temp_file"
 
         # Add newline separator
-        echo "" >>$temp_file
+        echo "" >>"$temp_file"
     end
 
     # Copy to clipboard
-    cat $temp_file | xclip -sel c
+    pbcopy <"$temp_file"
 
     # Count files processed
-    set -l file_count (fd --type f . $target_dir | wc -l)
+    set -l file_count (fd --type f --exclude node_modules --exclude .git . $target_dir | wc -l)
     echo "Copied contents of $file_count files from '$target_dir' to clipboard"
 
     # Clean up
-    rm $temp_file
+    rm "$temp_file"
 end
 
 # ==============================
@@ -130,7 +122,7 @@ end
 alias ll="eza -alF"
 alias la="eza -A"
 alias ls="eza --icons --grid --group-directories-first"
-alias cat="batcat -p"
+alias cat="bat -p"
 # alias curl="xh"
 alias tmux="zellij"
 # alias du="dust"

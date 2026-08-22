@@ -42,7 +42,7 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 
-# Ghostty configuration with Atom One Dark theme
+# Ghostty configuration with Nord theme
 
 # Window settings
 background-opacity = 0.8
@@ -53,34 +53,33 @@ background-blur = true
 # Removed incorrect window-title and window-save-state
 
 # Font settings
-font-size = 12.0
+font-size = 14.0
 font-feature = calt
 font-feature = liga
 font-feature = kern
 # Removed incorrect font-offset options
 
-# Atom One Dark theme colors
-background = #282c34
-foreground = #abb2bf
-# Removed incorrect cursor color setting
+# Nord theme colors
+background = #2e3440
+foreground = #d8dee9
 
-# Atom One Dark color palette - fixed syntax
-palette = 0=#282c34
-palette = 1=#e06c75
-palette = 2=#98c379
-palette = 3=#e5c07b
-palette = 4=#61afef
-palette = 5=#c678dd
-palette = 6=#56b6c2
-palette = 7=#abb2bf
-palette = 8=#5c6370
-palette = 9=#e06c75
-palette = 10=#98c379
-palette = 11=#e5c07b
-palette = 12=#61afef
-palette = 13=#c678dd
-palette = 14=#56b6c2
-palette = 15=#ffffff
+# Nord color palette
+palette = 0=#3b4252
+palette = 1=#bf616a
+palette = 2=#a3be8c
+palette = 3=#ebcb8b
+palette = 4=#81a1c1
+palette = 5=#b48ead
+palette = 6=#88c0d0
+palette = 7=#e5e9f0
+palette = 8=#4c566a
+palette = 9=#bf616a
+palette = 10=#a3be8c
+palette = 11=#ebcb8b
+palette = 12=#81a1c1
+palette = 13=#b48ead
+palette = 14=#8fbcbb
+palette = 15=#eceff4
 
 # Other settings
 cursor-style = block

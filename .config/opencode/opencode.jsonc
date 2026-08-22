@@ -1,0 +1,300 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "azure-foundry-gpt/gpt-5.6-sol",
+  "small_model": "azure-foundry-sonnet/claude-sonnet-5",
+  "instructions": ["~/.config/opencode/CLAUDE.md"],
+  "plugin": [
+    "opencode-chrome-devtools@1.0.4",
+    "opencode-mobile@1.4.0"
+  ],
+  "subagent_depth": 1,
+  "agent": {
+    "explore": {
+      "model": "azure-foundry-sonnet/claude-sonnet-5",
+      "variant": "low",
+      "steps": 50,
+      "permission": {
+        "edit": "deny",
+        "bash": {
+          "*": "deny",
+          "git status*": "allow",
+          "git diff*": "allow",
+          "git log*": "allow",
+          "git show*": "allow",
+          "git rev-parse*": "allow"
+        }
+      }
+    }
+  },
+  "permission": {
+    "read": {
+      "*": "allow",
+      "**/.env": "deny",
+      "**/.env.*": "deny",
+      "**/.env.example": "allow"
+    },
+    "bash": {
+      "*": "allow",
+      "rm *": "ask",
+      "sudo *": "deny",
+      "git clean*": "ask",
+      "git reset --hard*": "deny",
+      "git checkout --*": "ask",
+      "git restore*": "ask",
+      "git stash pop*": "deny",
+      "git push*": "ask",
+      "git push --force*": "deny",
+      "gh pr merge*": "ask",
+      "gh workflow run*": "ask",
+      "gh secret *": "deny",
+      "az *": "ask",
+      "az containerapp show*": "allow",
+      "az containerapp list*": "allow",
+      "az containerapp revision list*": "allow",
+      "./scripts/dev-prod.sh*": "ask"
+    },
+    "external_directory": {
+      "*": "ask",
+      "/var/folders/pv/p2kd10rn273718pvbvzd1vjc0000gn/T/opencode/**": "allow",
+      "/private/var/folders/pv/p2kd10rn273718pvbvzd1vjc0000gn/T/opencode/**": "allow",
+      "~/Scripts/Work/Auracare/AuracareAI/auratwin/.claude/worktrees/**": "allow",
+      "~/.codex/worktrees/*/auratwin/**": "allow"
+    }
+  },
+  "mcp": {
+    "open-computer-use": {
+      "type": "local",
+      "command": ["open-computer-use", "mcp"]
+    }
+  },
+  "compaction": {
+    "auto": true,
+    "prune": true,
+    "tail_turns": 6,
+    "preserve_recent_tokens": 20000,
+    "reserved": 20000
+  },
+  "tool_output": {
+    "max_lines": 1000,
+    "max_bytes": 30000
+  },
+  "watcher": {
+    "ignore": [
+      "node_modules/**",
+      ".svelte-kit/**",
+      "build/**",
+      "logs/**",
+      "graphify-out/**",
+      "**/.git/**"
+    ]
+  },
+  "provider": {
+    "azure-foundry-gpt": {
+      "npm": "@ai-sdk/openai",
+      "name": "Azure Foundry (OpenAI Responses)",
+      "options": {
+        "baseURL": "https://stephenadm-8977-resource.services.ai.azure.com/openai/v1"
+      },
+      "models": {
+        "gpt-5.6-sol": {
+          "name": "GPT-5.6 Sol",
+          "attachment": true,
+          "tool_call": true,
+          "limit": {
+            "context": 922000,
+            "output": 128000
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          },
+          "reasoning": true,
+          "options": {
+            "reasoningEffort": "high",
+            "reasoningSummary": "auto"
+          },
+          "variants": {
+            "none": {
+              "reasoningEffort": "none"
+            },
+            "low": {
+              "reasoningEffort": "low",
+              "reasoningSummary": "auto"
+            },
+            "medium": {
+              "reasoningEffort": "medium",
+              "reasoningSummary": "auto"
+            },
+            "high": {
+              "reasoningEffort": "high",
+              "reasoningSummary": "auto"
+            },
+            "xhigh": {
+              "reasoningEffort": "xhigh",
+              "reasoningSummary": "auto"
+            },
+            "max": {
+              "reasoningEffort": "max",
+              "reasoningSummary": "auto"
+            }
+          }
+        }
+      }
+    },
+    "azure-foundry-kimi": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Azure Foundry (OpenAI Compatible)",
+      "options": {
+        "baseURL": "https://stephenadm-8977-resource.services.ai.azure.com/openai/v1"
+      },
+      "models": {
+        "FW-Kimi-K3": {
+          "name": "Kimi K3",
+          "tool_call": true,
+          "limit": {
+            "context": 262144,
+            "output": 32768
+          },
+          "reasoning": true,
+          "interleaved": "reasoning_content",
+          "options": {
+            "reasoningEffort": "high"
+          },
+          "variants": {
+            "low": {
+              "reasoningEffort": "low"
+            },
+            "high": {
+              "reasoningEffort": "high"
+            },
+            "max": {
+              "reasoningEffort": "max"
+            }
+          }
+        }
+      }
+    },
+    "azure-foundry-opus": {
+      "npm": "@ai-sdk/anthropic",
+      "name": "Azure Foundry (Claude Opus)",
+      "options": {
+        "baseURL": "https://stephenadm-8977-resource.services.ai.azure.com/anthropic/v1"
+      },
+      "models": {
+        "claude-opus-5": {
+          "name": "Claude Opus 5",
+          "attachment": true,
+          "tool_call": true,
+          "limit": {
+            "context": 1000000,
+            "output": 128000
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          },
+          "reasoning": true,
+          "options": {
+            "thinking": {
+              "type": "adaptive"
+            },
+            "effort": "high"
+          },
+          "variants": {
+            "low": {
+              "thinking": {
+                "type": "adaptive"
+              },
+              "effort": "low"
+            },
+            "medium": {
+              "thinking": {
+                "type": "adaptive"
+              },
+              "effort": "medium"
+            },
+            "high": {
+              "thinking": {
+                "type": "adaptive"
+              },
+              "effort": "high"
+            },
+            "xhigh": {
+              "thinking": {
+                "type": "adaptive"
+              },
+              "effort": "xhigh"
+            },
+            "max": {
+              "thinking": {
+                "type": "adaptive"
+              },
+              "effort": "max"
+            }
+          }
+        }
+      }
+    },
+    "azure-foundry-sonnet": {
+      "npm": "@ai-sdk/anthropic",
+      "name": "Azure Foundry (Claude Sonnet)",
+      "options": {
+        "baseURL": "https://stephenadm-8977-resource.services.ai.azure.com/anthropic/v1"
+      },
+      "models": {
+        "claude-sonnet-5": {
+          "name": "Claude Sonnet 5",
+          "attachment": true,
+          "tool_call": true,
+          "limit": {
+            "context": 1000000,
+            "output": 128000
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          },
+          "reasoning": true,
+          "options": {
+            "thinking": {
+              "type": "adaptive"
+            },
+            "effort": "high"
+          },
+          "variants": {
+            "low": {
+              "thinking": {
+                "type": "adaptive"
+              },
+              "effort": "low"
+            },
+            "medium": {
+              "thinking": {
+                "type": "adaptive"
+              },
+              "effort": "medium"
+            },
+            "high": {
+              "thinking": {
+                "type": "adaptive"
+              },
+              "effort": "high"
+            },
+            "xhigh": {
+              "thinking": {
+                "type": "adaptive"
+              },
+              "effort": "xhigh"
+            },
+            "max": {
+              "thinking": {
+                "type": "adaptive"
+              },
+              "effort": "max"
+            }
+          }
+        }
+      }
+    }
+  }
+}

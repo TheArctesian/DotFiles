@@ -1,0 +1,51 @@
+{
+  "name": "opencode-agent-messaging",
+  "version": "0.2.1",
+  "description": "Let one opencode session discover and message another on the same machine, the way Claude Code's cross-session messaging works.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "bun build src/index.ts --target=node --outfile=dist/index.js --external @opencode-ai/plugin && tsc --emitDeclarationOnly",
+    "typecheck": "tsc --noEmit",
+    "test": "bun test",
+    "prepublishOnly": "bun run typecheck && bun test && bun run build"
+  },
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "plugin",
+    "agent",
+    "messaging",
+    "cross-session",
+    "multi-agent"
+  ],
+  "license": "GPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheArctesian/opencode-agent-messaging.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TheArctesian/opencode-agent-messaging/issues"
+  },
+  "homepage": "https://github.com/TheArctesian/opencode-agent-messaging#readme",
+  "peerDependencies": {
+    "@opencode-ai/plugin": "*"
+  },
+  "devDependencies": {
+    "@opencode-ai/plugin": "1.18.18",
+    "@types/node": "^24.0.0",
+    "typescript": "^5.8.2"
+  }
+}
