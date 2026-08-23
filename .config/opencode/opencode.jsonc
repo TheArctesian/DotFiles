@@ -93,7 +93,8 @@
       "npm": "@ai-sdk/openai",
       "name": "Azure Foundry (OpenAI Responses)",
       "options": {
-        "baseURL": "https://stephenadm-8977-resource.services.ai.azure.com/openai/v1"
+        "baseURL": "https://stephenadm-8977-resource.services.ai.azure.com/openai/v1",
+        "apiKey": "{env:AZURE_FOUNDRY_GPT_API_KEY}"
       },
       "models": {
         "gpt-5.6-sol": {
@@ -145,7 +146,8 @@
       "npm": "@ai-sdk/openai-compatible",
       "name": "Azure Foundry (OpenAI Compatible)",
       "options": {
-        "baseURL": "https://stephenadm-8977-resource.services.ai.azure.com/openai/v1"
+        "baseURL": "https://stephenadm-8977-resource.services.ai.azure.com/openai/v1",
+        "apiKey": "{env:AZURE_FOUNDRY_KIMI_API_KEY}"
       },
       "models": {
         "FW-Kimi-K3": {
@@ -178,7 +180,8 @@
       "npm": "@ai-sdk/anthropic",
       "name": "Azure Foundry (Claude Opus)",
       "options": {
-        "baseURL": "https://stephenadm-8977-resource.services.ai.azure.com/anthropic/v1"
+        "baseURL": "https://stephenadm-8977-resource.services.ai.azure.com/anthropic/v1",
+        "apiKey": "{env:AZURE_FOUNDRY_OPUS_API_KEY}"
       },
       "models": {
         "claude-opus-5": {
@@ -239,7 +242,8 @@
       "npm": "@ai-sdk/anthropic",
       "name": "Azure Foundry (Claude Sonnet)",
       "options": {
-        "baseURL": "https://stephenadm-8977-resource.services.ai.azure.com/anthropic/v1"
+        "baseURL": "https://stephenadm-8977-resource.services.ai.azure.com/anthropic/v1",
+        "apiKey": "{env:AZURE_FOUNDRY_SONNET_API_KEY}"
       },
       "models": {
         "claude-sonnet-5": {

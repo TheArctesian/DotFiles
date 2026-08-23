@@ -10,6 +10,8 @@ Usage: ./install.sh [--dry-run]
 
 Link the repository's .config files into the current user's XDG config home.
 Existing managed files are backed up before they are replaced.
+Directories targeted by the fish `cd` shortcuts (wrk, per, ...) are created
+if they are missing.
 EOF
 }
 
@@ -71,9 +73,35 @@ link_file() {
   fi
 }
 
+create_shortcut_dirs() {
+  local fish_config="$source_dir/fish/config.fish"
+
+  if [[ ! -f "$fish_config" ]]; then
+    return
+  fi
+
+  local relative destination
+  # Pull the targets out of aliases such as: alias wrk="cd $HOME/Scripts/Work"
+  while IFS= read -r relative; do
+    destination="$HOME/$relative"
+
+    if [[ -d "$destination" ]]; then
+      printf 'ok      %s\n' "$destination"
+      continue
+    fi
+
+    printf 'mkdir   %s\n' "$destination"
+    if [[ "$dry_run" == false ]]; then
+      mkdir -p "$destination"
+    fi
+  done < <(sed -n 's|^alias [A-Za-z0-9_]*="cd \$HOME/\(.*\)"$|\1|p' "$fish_config" | sort -u)
+}
+
 while IFS= read -r -d '' source; do
   link_file "$source"
 done < <(find "$source_dir" -type f ! -name '.DS_Store' -print0)
+
+create_shortcut_dirs
 
 if [[ "$dry_run" == true ]]; then
   printf '\nDry run only; no files were changed.\n'
