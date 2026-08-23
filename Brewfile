@@ -1,6 +1,7 @@
 tap "anomalyco/tap"
 
 brew "bat"
+brew "glow"
 brew "btop"
 brew "eza"
 brew "fd"
